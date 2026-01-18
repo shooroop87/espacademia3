@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}Видео от застройщиков - espacademia{% endblock %}
+{% block meta_description %}Видеообзоры объектов недвижимости на Бали от ведущих застройщиков{% endblock %}
+
+{% block content %}
+<!-- page-title -->
+<div class="page-title style-default">
+    <div class="thumbs">
+    </div>
+    <div class="content text-center">
+        <div class="tf-container">
+            <h2 class="title text_white mb_12">Видео от застройщиков</h2>
+            <ul class="breadcrumb justify-content-center text-button fw-4">
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li>Видео</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End page-title -->
+
+<!-- main-content -->
+<div class="tf-container tf-spacing-1">
+    <div class="row">
+        <!-- Video Grid -->
+        <div class="col-lg-9">
+            <div class="tf-grid-layout lg-col-3 md-col-2">
+                {% for video in videos %}
+                <div class="blog-article-item style-default hover-image-translate">
+                    <div class="article-thumb image-wrap mb_24">
+                        <img loading="lazy" src="{{ video.thumbnail_url }}" width="850" height="478" alt="{{ video.title }}">
+                        {% if video.developer %}
+                        <a href="?developer={{ video.developer.slug }}" class="tag text-label text text_primary-color text-uppercase">
+                            {{ video.developer.name }}
+                        </a>
+                        {% endif %}
+                        <a href="{{ video.youtube_url }}" class="popup-youtube overlay-link"></a>
+                    </div>
+                    <div class="article-content">
+                        <h5 class="title mb_12">
+                            <a href="{{ video.youtube_url }}" class="link popup-youtube">{{ video.title }}</a>
+                        </h5>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <p class="text-center text_secondary-color">Видео пока не добавлены</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Sidebar -->
+        <div class="col-lg-3" id="sidebar-right-mobile">
+            <div class="wrap-sidebar-right">
+                <div class="box-sellers style-no-border mb_30">
+                    <h5 class="mb_24">Консультация</h5>
+                    <p class="text-body-4 mb_20">Поможем выбрать надёжного застройщика на Бали</p>
+                    <a href="https://t.me/espacademia" class="tf-btn w-full" target="_blank">
+                        <span class="d-flex align-items-center gap_8"><i class="icon-ChatCircleDots"></i>Написать в Telegram</span>
+                        <span class="bg-effect"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.properties-video .img-style {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.properties-video .popup-youtube {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    background: rgba(0,0,0,0.3);
+}
+
+.properties-video .popup-youtube img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+
+.properties-video .popup-youtube:hover img {
+    transform: scale(1.1);
+}
+
+.properties-video .wrap-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 3;
+}
+
+.properties-video .content {
+    padding-top: 16px;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}Видео от застройщиков - espacademia{% endblock %}
+{% block meta_description %}Видеообзоры объектов недвижимости на Бали от ведущих застройщиков{% endblock %}
+
+{% block content %}
+<!-- page-title -->
+<div class="page-title style-default">
+    <div class="thumbs">
+    </div>
+    <div class="content text-center">
+        <div class="tf-container">
+            <h2 class="title text_white mb_12">Видео от застройщиков</h2>
+            <ul class="breadcrumb justify-content-center text-button fw-4">
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li>Видео</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End page-title -->
+
+<!-- main-content -->
+<div class="tf-container tf-spacing-1">
+    <div class="row">
+        <!-- Video Grid -->
+        <div class="col-lg-9">
+            <div class="tf-grid-layout md-col-2 gap_30">
+                {% for video in videos %}
+                <div class="card-house style-2 hover-image">
+                    <div class="img-style">
+                        <img src="{{ video.thumbnail_url }}" alt="{{ video.title }}">
+                        <a href="{{ video.youtube_url }}" class="popup-youtube">
+                            <img src="https://luminor-eight.vercel.app/icons/play.svg" alt="play">
+                        </a>
+                        {% if video.developer %}
+                        <div class="wrap-tag d-flex gap_8 mb_12">
+                            <a href="?developer={{ video.developer.slug }}" class="tag categoreis text-button-small fw-6 text_primary-color">
+                                {{ video.developer.name }}
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="content">
+                        <p class="line-clamp-1">{{ video.title }}</p>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <p class="text-center text_secondary-color">Видео пока не добавлены</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- Sidebar -->
+        <div class="col-lg-3" id="sidebar-right-mobile">
+            <div class="wrap-sidebar-right">
+                <div class="box-sellers style-no-border mb_30">
+                    <h5 class="mb_24">Консультация</h5>
+                    <p class="text-body-4 mb_20">Поможем выбрать надёжного застройщика на Бали</p>
+                    <a href="https://t.me/espacademia" class="tf-btn w-full" target="_blank">
+                        <span class="d-flex align-items-center gap_8"><i class="icon-ChatCircleDots"></i>Написать в Telegram</span>
+                        <span class="bg-effect"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Magnific Popup для видео -->
+<script>
+$(document).ready(function() {
+    $('.popup-youtube').magnificPopup({
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        preloader: false
+    });
+});
+</script>
+{% endblock %}

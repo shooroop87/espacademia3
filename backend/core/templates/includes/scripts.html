@@ -1,0 +1,46 @@
+{% load static i18n %}
+<!-- Javascript -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}" defer></script>
+<script src="{% static 'js/splitting.min.js' %}" defer></script>
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'js/carousel.js' %}" defer></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}" defer></script>
+<script src="{% static 'js/isotope.pkgd.min.js' %}" defer></script>
+<script src="{% static 'js/parallaxie.js' %}" defer></script>
+<script src="{% static 'js/ScrollSmooth.js' %}" defer></script>
+<script src="{% static 'js/ScrollTrigger.min.js' %}" defer></script>
+<script src="{% static 'js/SplitText.min.js' %}" defer></script>
+<script src="{% static 'js/gsap.min.js' %}" defer></script>
+<script src="{% static 'js/handleGsap.js' %}" defer></script>
+
+<!-- Magnific Popup для видео -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+<script src="{% static 'js/main.js' %}" defer></script>
+
+<script>
+$(document).ready(function() {
+    $('.popup-youtube').magnificPopup({
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        preloader: false,
+        iframe: {
+            patterns: {
+                youtube: {
+                    index: 'youtube.com/',
+                    id: 'v=',
+                    src: 'https://www.youtube.com/embed/%id%?autoplay=1&rel=0'
+                },
+                youtube_short: {
+                    index: 'youtu.be/',
+                    id: '/',
+                    src: 'https://www.youtube.com/embed/%id%?autoplay=1&rel=0'
+                }
+            }
+        }
+    });
+});
+</script>

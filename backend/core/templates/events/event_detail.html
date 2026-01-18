@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{{ event.title }} - espacademia{% endblock %}
+{% block meta_description %}{{ event.short_description|truncatewords:25 }}{% endblock %}
+
+{% block content %}
+
+<!-- main-content -->
+<div class="main-content">
+    <div class="blog-post">
+        <div class="tf-container tf-spacing-1">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="details-post">
+                        <!-- Heading -->
+                        <div class="heading-title mb_24">
+                            <div class="tag-heading text-button-small text_primary-color">Мероприятие</div>
+                            <h1 class="event-title">{{ event.title }}</h1>
+                            <div class="meta-post d-flex align-items-center flex-wrap gap_16 mb_16">
+                                {% if event.date_time %}
+                                <div class="item text_primary-color text-title fw-6 d-flex align-items-center gap_8">
+                                    <i class="icon-CalendarBlank"></i> {{ event.date_time|date:"d.m.Y" }} в {{ event.date_time|time:"H:i" }}
+                                </div>
+                                {% endif %}
+                                {% if event.location %}
+                                <div class="item text_primary-color text-title fw-6 d-flex align-items-center gap_8">
+                                    <i class="icon-MapPin"></i> {{ event.location }}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <!-- Description -->
+                        {% if event.short_description %}
+                        <p class="passive text-body-2 mb_24">{{ event.short_description }}</p>
+                        {% endif %}
+
+                        {% if event.description %}
+                        <div class="passive mb_40">
+                            <h5 class="mb_12">Описание мероприятия</h5>
+                            <div class="text-body-2">{{ event.description|safe }}</div>
+                        </div>
+                        {% endif %}
+
+                        <!-- Map -->
+                        {% if event.map_embed %}
+                        <div class="properties-location mb_40">
+                            <h5 class="properties-title mb_20">Как добраться</h5>
+                            {% if event.address %}
+                            <div class="heading d-flex align-items-center justify-content-between flex-wrap gap_12 mb_16">
+                                <div class="d-flex align-items-center gap_4 text-button fw-7 text_primary-color flex-wrap">
+                                    <i class="icon-MapPin"></i>{{ event.address }}
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="wrap-map">
+                                {{ event.map_embed|safe }}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- Booking Button -->
+                        {% if event.booking_url %}
+                        <div class="mb_40">
+                            <a href="{{ event.booking_url }}" target="_blank" class="tf-btn btn-bg-1">
+                                <span>Забронировать место</span>
+                                <span class="bg-effect"></span>
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- Sidebar -->
+                <div class="col-lg-3">
+                    <div class="tf-sidebar sticky-top">
+                        <!-- Event Info Card -->
+                        <div class="sidebar-item sidebar-author">
+                            <ul class="d-grid gap_12">
+                                {% if event.date_time %}
+                                <li class="d-flex align-items-center gap_8 text-body-default">
+                                    <i class="icon-CalendarBlank text_primary-color"></i>
+                                    <span>{{ event.date_time|date:"d.m.Y" }} в {{ event.date_time|time:"H:i" }}</span>
+                                </li>
+                                {% endif %}
+                                {% if event.location %}
+                                <li class="d-flex align-items-center gap_8 text-body-default">
+                                    <i class="icon-MapPin text_primary-color"></i>
+                                    <span>{{ event.location }}</span>
+                                </li>
+                                {% endif %}
+                                {% if event.organizer %}
+                                <li class="d-flex align-items-center gap_8 text-body-default">
+                                    <i class="icon-User text_primary-color"></i>
+                                    <span>{{ event.organizer }}</span>
+                                </li>
+                                {% endif %}
+                            </ul>
+                            {% if event.booking_url %}
+                            <a href="{{ event.booking_url }}" target="_blank" class="tf-btn btn-bg-1 w-100 mt_20">
+                                <span>Забронировать</span>
+                                <span class="bg-effect"></span>
+                            </a>
+                            {% endif %}
+                        </div>
+
+                        <!-- Banners -->
+                        {% for banner in sidebar_banners %}
+                        <div class="sidebar-item">
+                            {% if banner.url %}<a href="{{ banner.url }}" target="_blank">{% endif %}
+                            <img src="{{ banner.image.url }}" alt="{{ banner.title }}" class="w-100" loading="lazy">
+                            {% if banner.url %}</a>{% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Related Events -->
+    {% if related_events %}
+    <div class="section-career tf-spacing-1 pt-0">
+        <div class="tf-container">
+            <div class="wrap-heading-section d-flex justify-content-between align-items-center mb_30">
+                <div class="heading-section">
+                    <h3 class="event-title">Ближайшие мероприятия</h3>
+                </div>
+            </div>
+        </div>
+        <div class="tf-container sw-layout">
+            <div class="swiper" data-preview="2" data-tablet="2" data-mobile="1" data-space-lg="30" data-space-md="20" data-space="15">
+                <div class="swiper-wrapper">
+                    {% for rel_event in related_events %}
+                    <div class="swiper-slide">
+                        <div class="career-item">
+                            <div class="content">
+                                <div class="heading">
+                                    <div class="text-title fw-6 mb_8 text_primary-color">
+                                        <a href="{% url 'events:detail' rel_event.slug %}" class="link">{{ rel_event.title }}</a>
+                                    </div>
+                                    <ul class="d-flex">
+                                        {% if rel_event.location %}
+                                        <li class="d-flex align-items-center gap_4 text_secondary-color">
+                                            <i class="icon-MapPin"></i>{{ rel_event.location }}
+                                        </li>
+                                        {% endif %}
+                                        {% if rel_event.date_time %}
+                                        <li class="d-flex align-items-center gap_4 text_secondary-color">
+                                            <i class="icon-CalendarBlank"></i>{{ rel_event.date_time|date:"d.m.Y" }} в {{ rel_event.date_time|time:"H:i" }}
+                                        </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                                <div class="text_secondary-color">{{ rel_event.short_description|truncatewords:15 }}</div>
+                            </div>
+                            <div class="wrap-btn">
+                                <a href="{% url 'events:detail' rel_event.slug %}" class="tf-btn btn-border btn-px-28">
+                                    <span class="text-button-small">Подробнее</span>
+                                    <span class="bg-effect"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="sw-dots style-1 sw-pagination-layout justify-content-center d-flex mt_24"></div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+<style>
+@media (min-width: 1024px) {
+.main-content .blog-post .details-post h1.event-title {
+  font-size: 42px !important;
+  line-height: 52px !important;
+}
+h3.event-title {
+  font-size: 32px !important;
+  line-height: 40px !important;
+}
+</style>
+{% endblock %}
