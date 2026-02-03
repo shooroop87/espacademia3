@@ -64,12 +64,9 @@ INSTALLED_APPS = [
     # Local apps
     "accounts",
     "core",
-    "developers",
-    "properties",
-    "agencies",
-    "blog",
+    "courses",
+    "teachers",
     "events",
-    "news",
 ]
 
 SITE_ID = 1
@@ -236,15 +233,6 @@ SOCIALACCOUNT_PROVIDERS = {
         },
     }
 }
-
-# ===========================================
-# SENDPULSE
-# ===========================================
-SENDPULSE_API_USER_ID = os.getenv("SENDPULSE_API_USER_ID", "")
-SENDPULSE_API_SECRET = os.getenv("SENDPULSE_API_SECRET", "")
-SENDPULSE_FROM_EMAIL = os.getenv("SENDPULSE_FROM_EMAIL", "noreply@parisweek.ru")
-SENDPULSE_FROM_NAME = os.getenv("SENDPULSE_FROM_NAME", "espacademia")
-
 
 # Social auth
 SOCIALACCOUNT_AUTO_SIGNUP = True
