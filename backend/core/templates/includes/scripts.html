@@ -1,46 +1,35 @@
 {% load static i18n %}
-<!-- Javascript -->
+<!-- Critical (jQuery first) -->
 <script src="{% static 'js/jquery.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}" defer></script>
-<script src="{% static 'js/splitting.min.js' %}" defer></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<!-- Core plugins (depend on jQuery) -->
 <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
-<script src="{% static 'js/carousel.js' %}" defer></script>
-<script src="{% static 'js/jquery.nice-select.min.js' %}" defer></script>
-<script src="{% static 'js/isotope.pkgd.min.js' %}" defer></script>
-<script src="{% static 'js/parallaxie.js' %}" defer></script>
-<script src="{% static 'js/ScrollSmooth.js' %}" defer></script>
-<script src="{% static 'js/ScrollTrigger.min.js' %}" defer></script>
-<script src="{% static 'js/SplitText.min.js' %}" defer></script>
-<script src="{% static 'js/gsap.min.js' %}" defer></script>
-<script src="{% static 'js/handleGsap.js' %}" defer></script>
+<script src="{% static 'js/carousel.js' %}"></script>
+<script src="{% static 'js/magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
 
-<!-- Magnific Popup для видео -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<!-- Animations (can defer) -->
+<script defer src="{% static 'js/gsap.min.js' %}"></script>
+<script defer src="{% static 'js/ScrollTrigger.min.js' %}"></script>
+<script defer src="{% static 'js/SplitText.min.js' %}"></script>
+<script defer src="{% static 'js/ScrollSmooth.js' %}"></script>
+<script defer src="{% static 'js/splitting.min.js' %}"></script>
+<script defer src="{% static 'js/parallaxie.js' %}"></script>
+<script defer src="{% static 'js/handleGsap.js' %}"></script>
 
+<!-- External -->
 <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-<script src="{% static 'js/main.js' %}" defer></script>
 
+<!-- Main + Init -->
+<script src="{% static 'js/main.js' %}"></script>
 <script>
-$(document).ready(function() {
+$(function() {
     $('.popup-youtube').magnificPopup({
         type: 'iframe',
         mainClass: 'mfp-fade',
-        preloader: false,
-        iframe: {
-            patterns: {
-                youtube: {
-                    index: 'youtube.com/',
-                    id: 'v=',
-                    src: 'https://www.youtube.com/embed/%id%?autoplay=1&rel=0'
-                },
-                youtube_short: {
-                    index: 'youtu.be/',
-                    id: '/',
-                    src: 'https://www.youtube.com/embed/%id%?autoplay=1&rel=0'
-                }
-            }
-        }
+        preloader: false
     });
 });
 </script>

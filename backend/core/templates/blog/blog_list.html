@@ -6,22 +6,22 @@
 
 {% block content %}
 <!-- page-title -->
-<div class="page-title style-default">
+<div class="page-title">
     <div class="thumbs">
     </div>
-    <div class="content text-center">
+    <div class="content">
         <div class="tf-container">
-            <h2 class="title text_white mb_12">Статьи</h2>
-            <ul class="breadcrumb justify-content-center text-button fw-4">
+            <ul class="breadcrumb text-button fw-4">
                 <li><a href="{% url 'index' %}">Главная</a></li>
                 <li>Статьи</li>
             </ul>
+            <h2 class="title mb_12">Статьи</h2>
         </div>
     </div>
 </div>
 <!-- End page-title -->
  <!-- main-content -->
-<div class="tf-container tf-spacing-1 blog-grid">
+<div class="tf-container tf-spacing-1 blog-grid blog-grid-pt-0">
     <div class="tf-grid-layout lg-col-3 md-col-2">
         {% for post in page_obj %}
         <div class="blog-article-item style-default hover-image-translate">

@@ -1,158 +1,34 @@
-{% load i18n %}
-{% get_current_language as LANGUAGE_CODE %}
+{% load static i18n %}
 <!DOCTYPE html>
-<!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-<!--<![endif]-->
-
+<html lang="{{ LANGUAGE_CODE|default:'ru' }}">
 <head>
-    <!-- Basic Page Needs -->
-    <meta charset="utf-8">
-    <!--[if IE ]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
-    <title>{% block title %}espacademia{% endblock %}</title>
-
-    <meta name="description" content="{% block meta_description %}{% endblock %}">
-    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
-    <meta name="author" content="espacademia.com">
-
-    <meta name="yandex-verification" content="56db6b0208f58f9a">
-    <meta name="google-site-verification" content="ueGorN6CDOPOh9ickb1yu8_ae0iDfY4IIOX7O69wv3Q">
-
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <link rel="canonical" href="{% block canonical_url %}{{ request.build_absolute_uri }}{% endblock %}">
-
-    <!-- hreflang -->
-    <link rel="alternate" hreflang="ru" href="https://espacademia.com{{ request.path }}">
-    <link rel="alternate" hreflang="en" href="https://espacademia.com/en{{ request.path }}">
-    <link rel="alternate" hreflang="x-default" href="https://espacademia.com{{ request.path }}">
-
-    <!-- Open Graph -->
-    <meta property="og:locale" content="ru_RU">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{% block og_title %}{{ block.super }}{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}{% endblock %}">
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:site_name" content="espacademia">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-<!-- Preload критичных ресурсов -->
-<link rel="preload" href="{% static 'css/bootstrap.css' %}" as="style">
-<link rel="preload" href="{% static 'font/fonts.css' %}" as="style">
-<link rel="preload" href="{% static 'css/styles.css' %}" as="style">
-
-<!-- Критичные стили (загружаются сразу) -->
-<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-<link rel="stylesheet" href="{% static 'font/fonts.css' %}">
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
-<!-- Некритичные стили (отложенная загрузка) -->
-<link rel="stylesheet" href="{% static 'css/animate.min.css' %}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{% static 'css/odometer.min.css' %}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{% static 'css/sib-styles.css' %}" media="print" onload="this.media='all'">
-
-<!-- Magnific Popup -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" media="print" onload="this.media='all'">
-
-<!-- Icon (отложенно) -->
-<link rel="stylesheet" href="{% static 'icons/icomoon/style.css' %}" media="print" onload="this.media='all'">
-
-<!-- Favicon -->
-<link rel="icon" href="{% static 'images/favicon.svg' %}" type="image/svg+xml">
-<link rel="apple-touch-icon" href="{% static 'images/favicon.svg' %}">
-
-<!-- Fallback для браузеров без JS -->
-<noscript>
-    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/odometer.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/sib-styles.css' %}">
-    <link rel="stylesheet" href="{% static 'icons/icomoon/style.css' %}">
-</noscript>
-    <!-- Custom snippets in head -->
-    {% for snippet in snippets_head %}
-    {{ snippet.code|safe }}
-    {% endfor %}
+    {% include 'includes/meta.html' %}
+    {% include 'includes/seo.html' %}
+    {% include 'includes/styles.html' %}
+    {% include 'includes/favicon.html' %}
+    {% block extra_css %}{% endblock %}
+    {% for snippet in snippets_head %}{{ snippet.code|safe }}{% endfor %}
 </head>
 
 <body>
-    <!-- Custom snippets after body start -->
-    {% for snippet in snippets_body_start %}
-    {{ snippet.code|safe }}
-    {% endfor %}
-    <!-- wrapper -->
+    {% for snippet in snippets_body_start %}{{ snippet.code|safe }}{% endfor %}
     <div id="wrapper" class="counter-scroll">
         {% include 'includes/top-bar.html' %}
         {% include 'includes/header.html' %}
 
-        <!-- main-content -->
-        <div class="main-content tf-spacing-8" style="background-color: #f8f7f3;">
+        <main class="main-content tf-spacing-8" style="background-color: #f8f7f3;padding-bottom: 0px;">
             {% block content %}{% endblock %}
-        </div>
-        <!-- End main-content -->
+        </main>
 
         {% include 'includes/footer.html' %}
-
     </div>
-    <!-- End wrapper -->
 
     {% include 'includes/mobile_menu.html' %}
-
     {% include 'includes/scripts.html' %}
-
     {% include 'includes/auth_popup.html' %}
-
-    {% block extra_js %}
-        <script>
-// Auth popup form switching
-document.addEventListener('DOMContentLoaded', function() {
-    const loginContainer = document.getElementById('login-form-container');
-    const registerContainer = document.getElementById('register-form-container');
+    {% include 'includes/auth_scripts.html' %}
     
-    // Switch forms
-    document.querySelectorAll('[data-form]').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const form = this.dataset.form;
-            
-            if (form === 'register') {
-                loginContainer.style.display = 'none';
-                registerContainer.style.display = 'block';
-            } else if (form === 'login') {
-                registerContainer.style.display = 'none';
-                loginContainer.style.display = 'block';
-            }
-        });
-    });
-    
-    // Reset on modal close
-    document.getElementById('authModal').addEventListener('hidden.bs.modal', function() {
-        loginContainer.style.display = 'block';
-        registerContainer.style.display = 'none';
-    });
-    
-    // Open register form directly
-    document.querySelectorAll('[data-bs-target="#authModal"][data-form="register"]').forEach(btn => {
-        btn.addEventListener('click', function() {
-            setTimeout(() => {
-                loginContainer.style.display = 'none';
-                registerContainer.style.display = 'block';
-            }, 100);
-        });
-    });
-});
-</script>
-    
-    {% endblock %}
-
-
-    <!-- Custom snippets before body end -->
-    {% for snippet in snippets_body_end %}
-    {{ snippet.code|safe }}
-    {% endfor %}
+    {% block extra_js %}{% endblock %}
+    {% for snippet in snippets_body_end %}{{ snippet.code|safe }}{% endfor %}
 </body>
 </html>

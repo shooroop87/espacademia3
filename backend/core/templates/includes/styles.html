@@ -1,0 +1,24 @@
+{% load static i18n %}
+<!-- Critical CSS -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<!-- Fonts -->
+<link rel="preload" href="{% static 'font/fonts.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{% static 'font/fonts.css' %}"></noscript>
+
+<!-- Icons -->
+<link rel="stylesheet" href="{% static 'icons/icomoon/style.css' %}">
+
+<!-- Non-critical CSS -->
+<link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{% static 'css/magnific-popup.min.css' %}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{% static 'css/animate.min.css' %}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{% static 'css/odometer.min.css' %}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{% static 'css/sib-styles.css' %}" media="print" onload="this.media='all'">
+
+<noscript>
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+</noscript>

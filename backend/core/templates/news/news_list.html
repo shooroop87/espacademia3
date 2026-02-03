@@ -6,22 +6,22 @@
 
 {% block content %}
 <!-- page-title -->
-<div class="page-title style-default">
+<div class="page-title">
     <div class="thumbs">
     </div>
-    <div class="content text-center">
+    <div class="content">
         <div class="tf-container">
-            <h2 class="title text_white mb_12">Новости</h2>
-            <ul class="breadcrumb justify-content-center text-button fw-4">
+            <ul class="breadcrumb text-button fw-4">
                 <li><a href="{% url 'index' %}">Главная</a></li>
                 <li>Новости</li>
             </ul>
+            <h2 class="title mb_12">Новости</h2>
         </div>
     </div>
 </div>
 <!-- End page-title -->
 <!-- main-content -->
-<div class="tf-container tf-spacing-1 blog-grid">
+<div class="tf-container tf-spacing-1 blog-grid blog-grid-pt-0">
     <div class="tf-grid-layout lg-col-3 md-col-2">
         {% for post in posts %}
         <div class="blog-article-item style-default hover-image-translate">
@@ -40,7 +40,7 @@
                 <div class="meta-post d-flex align-items-center mb_12">
                     <div class="item text_secondary-color text-caption-1">{{ post.published_at|date:"d.m.Y" }}</div>
                 </div>
-                <h5 class="title mb_12">
+                <h5 class="title mb_6">
                     <a href="{% url 'news:detail' post.slug %}" class="link">{{ post.title }}</a>
                 </h5>
                 <p class="description">{{ post.excerpt|truncatewords:15 }}</p>

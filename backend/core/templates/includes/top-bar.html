@@ -1,5 +1,4 @@
-{% load i18n %}
-{% get_current_language as LANGUAGE_CODE %}
+{% load static i18n %}
 <!-- Top Bar -->
 <div class="top-bar" id="top-bar">
     <div class="tf-container">
@@ -9,26 +8,28 @@
                 <li><a href="{% url 'properties:list' %}">Объекты недвижимости</a></li>
                 <li><a href="{% url 'news:list' %}">Новости</a></li>
                 <li><a href="{% url 'blog:list' %}">Статьи</a></li>
-                <li><a href="{% url 'video_list' %}">Видео от застройщиков</a></li>
-                <li><a href="{% url 'developer_summary:list' %}">Cводка от застройщиков</a></li>
+                <li><a href="{% url 'video_from_developers' %}">Видео от застройщиков</a></li>
+                <li><a href="{% url 'agencies:list' %}">Cводка от застройщиков</a></li>
                 <li><a href="{% url 'events:list' %}">Мероприятия</a></li>
             </ul>
 
             <!-- Правая часть -->
             <div class="top-bar-right d-flex align-items-center gap_16">
                 <!-- Переключатель языка -->
-                 <div class="lang-switcher">
+                <div class="lang-switcher">
                     <div class="lang-current">
-                        {% if LANGUAGE_CODE == 'ru' %}
-                            <img src="https://espacademia.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/ru_RU.png" alt="RU" class="lang-flag">
-                        {% else %}
-                            <img src="https://espacademia.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png" alt="EN" class="lang-flag">
-                        {% endif %}
+                        <img src="https://espacademia.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/ru_RU.png" alt="RU" class="lang-flag">
                         <i class="icon-CaretDown"></i>
                     </div>
                     <div class="menu-lang">
-                        <a class="dropdown-item active" href="{% url 'set_language' %}?language=ru&next={{ request.path }}">Русский</a>
-                        <a class="dropdown-item" href="/en{{ request.path }}">English</a>
+                        <a class="dropdown-item active" href="#">
+                            <img src="https://espacademia.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/ru_RU.png" alt="RU" class="lang-flag">
+                            Русский
+                        </a>
+                        <a class="dropdown-item" href="/en/">
+                            <img src="https://espacademia.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png" alt="EN" class="lang-flag">
+                            English
+                        </a>
                     </div>
                 </div>
                 <!-- Соцсети -->
@@ -50,7 +51,7 @@
 <style>
 .top-bar {
     background: #f8f7f3;
-    padding: 0.625rem 0;
+    padding: 0 0 0.625rem 0;
     position: relative;
     z-index: 9999;
     overflow: visible !important;

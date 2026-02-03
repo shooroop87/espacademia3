@@ -5,7 +5,8 @@
             <h3>Отзывы о застройщиках</h3>
         </div>
         
-        <div class="swiper" data-preview="2" data-tablet="2" data-mobile="1" data-space-lg="30" data-space-md="20" data-space="15">
+        <div class="tf-container sw-layout" id="testimonials_swiper">
+        <div class="swiper" data-preview="3" data-tablet="2" data-mobile="1" data-space-lg="30" data-space-md="20" data-space="15">
             <div class="swiper-wrapper">
                 {% for review in reviews %}
                 <div class="swiper-slide">
@@ -16,7 +17,7 @@
                                 <li><i class="icon-favorite_major {% if forloop.counter > review.rating %}text-muted{% endif %}"></i></li>
                                 {% endfor %}
                             </ul>
-                            <p class="text_primary-color text-body-1 mb_23">"{{ review.text|truncatewords:40 }}"</p>
+                            <p class="text_primary-color text-body-4 mb_23">"{{ review.text|truncatewords:40 }}"</p>
                         </div>
                         <div class="author d-flex gap_12 align-items-center">
                             <div class="avatar">
@@ -29,7 +30,6 @@
     {% endif %}
 </div>
                             <div class="info">
-                                <span class="h6 text_primary-color name mb_4">{{ review.user_name }}</span>
                                 {% if review.developer %}
                                 <p>
                                     <a href="{{ review.developer.get_absolute_url }}" class="link text_secondary-color">
@@ -52,10 +52,15 @@
             </div>
             <div class="sw-dots style-1 sw-pagination-layout justify-content-center d-flex mt_24"></div>
         </div>
+        </div>
     </div>
 </div>
 
 <style>
+#testimonials_swiper {
+    padding-left: 0;
+    padding-right: 0;
+}
 .avatar-placeholder {
     width: 60px;
     height: 60px;

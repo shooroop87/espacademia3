@@ -1,0 +1,46 @@
+<!-- Banner Section -->
+<div class="tf-container tf-spacing-7 pb-0">
+    <div class="banner-rotation">
+        {% for category in categories %}
+            {% with banner=category.banners.first %}
+                {% if banner %}
+                <div class="banner-content{% if forloop.first %} banner-rotation-active{% endif %}" 
+                     data-tab="{{ forloop.counter0 }}" 
+                     {% if not forloop.first %}style="display: none;"{% endif %}>
+                    <a href="{% if banner.link %}{{ banner.link }}{% else %}#{% endif %}" 
+                       {% if banner.open_popup %}data-popup="#popup-lead"{% endif %}
+                       {% if banner.link and not banner.open_popup %}target="_blank"{% endif %}
+                       class="d-block">
+                        <picture>
+                            <source media="(min-width: 768px)" srcset="{{ banner.desktop_url }}">
+                            <img src="{{ banner.mobile_url }}" class="w-100" alt="{{ banner.alt_text }}">
+                        </picture>
+                    </a>
+                </div>
+                {% endif %}
+            {% endwith %}
+        {% empty %}
+            <!-- Fallback если нет баннеров -->
+            <div class="banner-content banner-rotation-active">
+                <p class="text-center py-4">Баннеры не настроены</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- End Banner Section -->
+
+<style>
+.banner-rotation {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+.banner-rotation .banner-content {
+    width: 100%;
+}
+.banner-rotation .banner-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+</style>

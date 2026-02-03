@@ -10,5 +10,5 @@ urlpatterns = [
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
     path('terms-of-use/', views.terms_of_use, name='terms_of_use'),
     path('contact/', views.contact_request, name='contact_request'),
-    path('video-ot-zastroyschikov/', views.video_list, name='video_list'),
+    path('video-ot-zastroyschikov/', views.video_from_developers, name='video_from_developers'),
 ]

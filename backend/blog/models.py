@@ -54,7 +54,6 @@ class BlogPost(models.Model):
         if self.featured_image:
             return self.featured_image.url
         return self.featured_image_url or ''
-    
     content = models.TextField("Контент (HTML)")
     
     status = models.CharField("Статус", max_length=20, choices=Status.choices, default=Status.DRAFT)

@@ -37,10 +37,10 @@
         <a href="{% url 'blog:list' %}" class="link">Статьи</a>
     </li>
     <li class="text-body-default text_color-1">
-        <a href="{% url 'video_list' %}" class="link">Видео от застройщиков</a>
+        <a href="#" class="link">Видео от застройщиков</a>
     </li>
     <li class="text-body-default text_color-1">
-        <a href="{% url 'developer_summary:list' %}" class="link">Сводка от застройщиков</a>
+        <a href="{% url 'index' %}#category-luchshie-developery" class="link">Сводка от застройщиков</a>
     </li>
     <li class="text-body-default text_color-1">
         <a href="{% url 'events:list' %}" class="link">Мероприятия</a>
@@ -58,10 +58,10 @@
                         <a href="#" class="link">Объекты недвижимости</a>
                     </li>
                     <li class="text-body-default text_color-1">
-                        <a href="#" class="link">Рейтинги девелоперов</a>
+                        <a href="#category-luchshie-developery" class="link">Рейтинги девелоперов</a>
                     </li>
                     <li class="text-body-default text_color-1">
-                        <a href="#" class="link">Агентства</a>
+                        <a href="{% url 'index' %}#category-agentstva-nedvizhimosti" class="link">Агентства</a>
                     </li>
                     <li class="text-body-default text_color-1">
                         <a href="{% url 'developer_award_2025' %}" class="link">Премия Девелопер 2025</a>
@@ -151,7 +151,7 @@
         <div class="footer-bottom d-flex align-items-center justify-content-between">
             <p class="text_muted-color">© espacademia 2020-2025. Все права защищены.</p>
            <!-- Соцсети -->
-<ul class="tf-social d-flex gap_12">
+<ul class="tf-social d-flex gap_12" id="footer_social">
     {% if settings.telegram_link %}
     <li><a href="{{ settings.telegram_link }}" target="_blank" class="icon-TelegramLogo"></a></li>
     {% endif %}
@@ -169,3 +169,8 @@
     </div>
 </footer>
 <!-- End Footer -->
+<style>
+ul#footer_social.tf-social a {
+color: #fff;
+}
+</style>

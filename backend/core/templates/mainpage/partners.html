@@ -1,0 +1,91 @@
+<!-- section-partners -->
+{% if partners %}
+<div class="section-testimonials tf-spacing-8" id="partners" style="padding-bottom: 0px;">
+    <div class="tf-container">
+        <div class="heading-section mb_48">
+            <h3>Официальные партнеры</h3>
+        </div>
+    </div>
+    <div class="tf-container">
+        <div class="swiper partners-swiper">
+            <div class="swiper-wrapper">
+                {% for partner in partners %}
+                <div class="swiper-slide">
+                    {% if partner.website %}
+                    <a href="{{ partner.website }}" target="_blank" class="brand d-block">
+                        <img src="{{ partner.logo_image }}" alt="{{ partner.name }}">
+                    </a>
+                    {% else %}
+                    <div class="brand">
+                        <img src="{{ partner.logo_image }}" alt="{{ partner.name }}">
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {# Дублируем для заполнения экрана #}
+                {% for partner in partners %}
+                <div class="swiper-slide">
+                    {% if partner.website %}
+                    <a href="{{ partner.website }}" target="_blank" class="brand d-block">
+                        <img src="{{ partner.logo_image }}" alt="{{ partner.name }}">
+                    </a>
+                    {% else %}
+                    <div class="brand">
+                        <img src="{{ partner.logo_image }}" alt="{{ partner.name }}">
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.partners-swiper {
+    overflow: hidden;
+}
+.partners-swiper .swiper-slide {
+    width: 181px;
+    margin-right: 20px;
+}
+.partners-swiper .brand {
+    width: 181px;
+    height: 80px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.partners-swiper .brand img {
+    max-height: 50px;
+    max-width: 140px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    new Swiper('.partners-swiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        loop: true,
+        loopAdditionalSlides: 10,
+        speed: 7000,
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+        },
+        allowTouchMove: false,
+        freeMode: {
+            enabled: true,
+            momentum: false,
+        },
+    });
+});
+</script>
+{% endif %}
+<!-- end section-partners -->

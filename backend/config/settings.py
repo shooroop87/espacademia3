@@ -64,8 +64,12 @@ INSTALLED_APPS = [
     # Local apps
     "accounts",
     "core",
+    "developers",
+    "properties",
+    "agencies",
     "blog",
     "events",
+    "news",
 ]
 
 SITE_ID = 1
@@ -134,7 +138,6 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "core.context_processors.site_settings",
-                "core.context_processors.code_snippets",
             ],
         },
     },
@@ -165,7 +168,7 @@ else:
             "USER": os.getenv("POSTGRES_USER", "espacademia_user"),
             "PASSWORD": os.getenv("POSTGRES_PASSWORD", "espacademia_password"),
             "HOST": os.getenv("POSTGRES_HOST", "localhost"),
-            "PORT": os.getenv("POSTGRES_PORT", "5455"),
+            "PORT": os.getenv("POSTGRES_PORT", "5450"),
         }
     }
 

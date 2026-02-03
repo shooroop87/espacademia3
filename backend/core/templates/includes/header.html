@@ -11,12 +11,12 @@
                     <nav class="main-menu">
                         <ul class="navigation">
                             <li class="text-menu current-menu">
-                                <a href="#developers" class="splitting">
+                                <a href="{% url 'index' %}#category-luchshie-developery" class="splitting">
                                     <span class="text" data-splitting>Рейтинги девелоперов</span>
                                 </a>
                             </li>
                             <li class="text-menu">
-                                <a href="https://espacademia.com/agency/#agency" class="splitting">
+                                <a href="{% url 'index' %}#category-agentstva-nedvizhimosti" class="splitting">
                                     <span class="text" data-splitting>Агентства</span>
                                 </a>
                             </li>
@@ -28,10 +28,13 @@
                         </ul>
                     </nav>
                     <div class="header-right d-flex align-items-center gap_20">
-                        <div class="text-button text_primary-color">
-    <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#authModal">Вход</a> / 
-    <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#authModal" data-form="register">Регистрация</a>
-</div>
+                    <a href="#" class="link text_primary-color" data-bs-toggle="modal" data-bs-target="#authModal" title="Вход / Регистрация">
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <circle cx="12" cy="12" r="10"/>
+    <circle cx="12" cy="10" r="3"/>
+    <path d="M6.168 18.849A4 4 0 0110 16h4a4 4 0 013.834 2.855"/>
+</svg>
+</a>
                         <a href="#" data-popup="#popup-download" id="download-mobile-no" class="tf-btn btn-bg-primary btn-px-32">
                             <span>Получить предложение месяца</span>
                             <span class="bg-effect"></span>
@@ -43,6 +46,7 @@
                                 <span></span>
                                 <span></span>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -62,12 +66,12 @@
                     <nav class="main-menu">
                         <ul class="navigation">
                             <li class="text-menu current-menu">
-                                <a href="#developers" class="splitting">
+                                <a href="{% url 'index' %}#category-luchshie-developery" class="splitting">
                                     <span class="text" data-splitting>Рейтинги девелоперов</span>
                                 </a>
                             </li>
                             <li class="text-menu">
-                                <a href="#" class="splitting">
+                                <a href="{% url 'index' %}#category-agentstva-nedvizhimosti" class="splitting">
                                     <span class="text" data-splitting>Агентства</span>
                                 </a>
                             </li>
@@ -79,11 +83,14 @@
                         </ul>
                     </nav>
                     <div class="header-right d-flex align-items-center gap_20">
-                        <div class="text-button text_primary-color">
-    <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#authModal">Вход</a> / 
-    <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#authModal" data-form="register">Регистрация</a>
-</div>
-                        <a href="#" data-popup="#popup-download" class="tf-btn btn-bg-primary btn-px-32">
+                    <a href="#" class="link text_primary-color" data-bs-toggle="modal" data-bs-target="#authModal" title="Вход / Регистрация">
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <circle cx="12" cy="12" r="10"/>
+    <circle cx="12" cy="10" r="3"/>
+    <path d="M6.168 18.849A4 4 0 0110 16h4a4 4 0 013.834 2.855"/>
+</svg>
+</a>
+                        <a href="#" data-popup="#popup-download" id="download-mobile-no" class="tf-btn btn-bg-primary btn-px-32">
                             <span>Получить предложение месяца</span>
                             <span class="bg-effect"></span>
                         </a>
@@ -95,6 +102,7 @@
                                 <span></span>
                             </div>
                         </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -103,7 +111,7 @@
 </header>
 <style>
 @media (max-width: 768px) {
-    #wrapper > header.header.style-3 > div > div > div > div > div > a {
+    #download-mobile-no {
         display: none !important;
     }
 }

@@ -1,0 +1,18 @@
+{% load static i18n %}
+<title>{% block title %}espacademia{% endblock %}</title>
+<meta name="description" content="{% block meta_description %}{% endblock %}">
+<meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+
+<!-- Hreflang для мультиязычности -->
+<link rel="alternate" hreflang="ru" href="https://espacademia.com{{ request.path }}">
+<link rel="alternate" hreflang="en" href="https://espacademia.com/en{{ request.path }}">
+<link rel="alternate" hreflang="x-default" href="https://espacademia.com{{ request.path }}">
+
+<!-- Canonical -->
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="{% if LANGUAGE_CODE == 'en' %}en_US{% else %}ru_RU{% endif %}">
+<meta property="og:locale:alternate" content="{% if LANGUAGE_CODE == 'en' %}ru_RU{% else %}en_US{% endif %}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="espacademia">
