@@ -1,28 +1,6 @@
 from django.contrib import admin
-from .models import Video, CodeSnippet, ContactRequest, FAQ, SiteSettings, BannerPlacement, Banner, Partner, Popup, HeaderButton
+from .models import CodeSnippet, ContactRequest, FAQ, SiteSettings, Popup, HeaderButton, Review, WhySpanishItem
 
-
-@admin.register(Video)
-class VideoAdmin(admin.ModelAdmin):
-    list_display = ["title", "developer", "is_active", "created_at", "preview"]
-    list_filter = ["is_active", "developer"]
-    search_fields = ["title"]
-    raw_id_fields = ["developer"]
-    
-    fieldsets = (
-        (None, {
-            "fields": ("title", "youtube_id", "developer", "is_active")
-        }),
-        ("Превью (выберите один вариант)", {
-            "fields": ("thumbnail", "thumbnail_url_external"),
-            "description": "Загрузите файл ИЛИ вставьте ссылку. Если оба пустые — возьмётся автоматически с YouTube."
-        }),
-    )
-    
-    def preview(self, obj):
-        from django.utils.html import format_html
-        return format_html('<img src="{}" width="80" height="45" style="object-fit: cover; border-radius: 4px;"/>', obj.thumbnail_url)
-    preview.short_description = "Превью"
 
 
 @admin.register(ContactRequest)
@@ -31,6 +9,14 @@ class ContactRequestAdmin(admin.ModelAdmin):
     list_filter = ["is_processed", "source", "created_at"]
     search_fields = ["name", "phone", "email"]
     readonly_fields = ["created_at"]
+
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ['user_name', 'rating', 'is_active', 'created_at']
+    list_filter = ['is_active', 'rating']
+    list_editable = ['is_active']
+    search_fields = ['user_name', 'text']
 
 
 @admin.register(FAQ)
@@ -67,6 +53,13 @@ class SiteSettingsAdmin(admin.ModelAdmin):
         return False
     
 
+@admin.register(WhySpanishItem)
+class WhySpanishItemAdmin(admin.ModelAdmin):
+    list_display = ['order', 'emoji', 'title', 'media_type', 'is_active']
+    list_editable = ['order', 'is_active']
+    list_display_links = ['title']
+
+
 @admin.register(CodeSnippet)
 class CodeSnippetAdmin(admin.ModelAdmin):
     list_display = ["name", "location", "order", "is_active", "updated_at"]
@@ -84,79 +77,6 @@ class CodeSnippetAdmin(admin.ModelAdmin):
             "description": "Вставьте полный код включая теги <script>, <style> и т.д."
         }),
     )
-
-
-@admin.register(BannerPlacement)
-class BannerPlacementAdmin(admin.ModelAdmin):
-    list_display = ['name', 'code', 'banners_count']
-    
-    def banners_count(self, obj):
-        return obj.banners.filter(is_active=True).count()
-    banners_count.short_description = "Активных баннеров"
-
-
-@admin.register(Banner)
-class BannerAdmin(admin.ModelAdmin):
-    list_display = ['title', 'placement', 'developer_category', 'popup', 'is_active', 'order', 'preview_desktop']
-    list_filter = ['placement', 'is_active', 'developer_category']
-    list_editable = ['is_active', 'order']
-    search_fields = ['title']
-    
-    fieldsets = (
-        (None, {
-            'fields': ('title', 'placement', 'developer_category')
-        }),
-        ('Desktop изображение', {
-            'fields': ('image_desktop', 'image_desktop_url'),
-        }),
-        ('Mobile изображение', {
-            'fields': ('image_mobile', 'image_mobile_url'),
-        }),
-        ('Действие при клике', {
-            'fields': ('popup', 'open_popup', 'link', 'alt_text'),
-            'description': 'Popup имеет приоритет над open_popup и link'
-        }),
-        ('Настройки', {
-            'fields': ('order', 'is_active')
-        }),
-    )
-    
-    def preview_desktop(self, obj):
-        from django.utils.html import format_html
-        url = obj.desktop_url
-        if url:
-            return format_html('<img src="{}" height="40" style="border-radius: 4px;"/>', url)
-        return '-'
-    preview_desktop.short_description = "Превью"
-
-
-@admin.register(Partner)
-class PartnerAdmin(admin.ModelAdmin):
-    list_display = ['name', 'website', 'is_active', 'order', 'logo_preview']
-    list_filter = ['is_active']
-    list_editable = ['is_active', 'order']
-    search_fields = ['name']
-    
-    fieldsets = (
-        (None, {
-            'fields': ('name', 'website')
-        }),
-        ('Логотип', {
-            'fields': ('logo', 'logo_url'),
-            'description': 'Загрузите файл ИЛИ вставьте URL'
-        }),
-        ('Настройки', {
-            'fields': ('order', 'is_active')
-        }),
-    )
-    
-    def logo_preview(self, obj):
-        from django.utils.html import format_html
-        url = obj.logo_image
-        if url:
-            return format_html('<img src="{}" height="30" style="background:#f5f5f5; padding:4px; border-radius:4px;"/>', url)
-        return '-'
-    logo_preview.short_description = "Лого"
 
 
 @admin.register(Popup)

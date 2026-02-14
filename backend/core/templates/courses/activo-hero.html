@@ -1,0 +1,253 @@
+{% load static i18n %}
+<!-- section-hero-offers -->
+<div>
+    <!-- Декор слева -->
+    <img src="https://espacademia.com/wp-content/uploads/2023/12/faq-5.png" alt="" class="hero-offers-decor hero-offers-decor-left">
+    <!-- Декор справа -->
+    <img src="https://espacademia.com/wp-content/uploads/2023/12/home8-vactor-bg.png" alt="" class="hero-offers-decor hero-offers-decor-right">
+
+<div class="tf-container tf-spacing-1">
+
+    <div class="heading-section justify-content-center text-center mb_48">
+        <h1>УРОКИ ИСПАНСКОГО ЯЗЫКА <span class="text_secondary-color-2">С НОСИТЕЛЯМИ</span></h1>
+        <p>Изучайте испанский язык с носителями по проверенной методике индивидуально или в мини-группе.</p>
+    </div>
+    <div class="tf-grid-layout lg-col-3">
+        <div class="pricing-item pricing-item-p pricing-item-mobile" style="background-color: #EEFFC7;">
+            <div class="heading d-grid gap_8 mb_24">
+                <h5>Бесплатный пробный урок</h5>
+                <p>Сделайте первый шаг к свободному испанскому</p>
+                <h3><del>2100 р.</del> 0 р.</h3>
+            </div>
+            <a href="#" class="tf-btn btn-border w-full" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="free_trial" style="--button-width: 352px;">
+                <span>Записаться</span>
+                <span class="bg-effect"></span>
+            </a>
+        </div>
+        <div class="pricing-item pricing-item-p pricing-item-mobile" style="background-color: #EED0F8;">
+            <div class="tag d-flex gap_4 text_primary-color text-button-small align-items-center">
+                <i class="icon-Star"></i>
+                Скидка 67%
+            </div>
+            <div class="heading d-grid gap_8 mb_24">
+                <h5>Запишитесь на мини-курс со скидкой 67%</h5>
+                <p>"Активируйте" ваш испанский за 7 дней!</p>
+                <h3><del>2990 р.</del> 990 р.</h3>
+            </div>
+            <a href="#" class="tf-btn w-full" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="mini_course_67" style="--button-width: 354px;background-color: #F9AD33;">
+                <span>Записаться</span>
+                <span class="bg-effect"></span>
+            </a>
+        </div>
+        <div class="pricing-item pricing-item-p pricing-item-mobile" style="background-color: #FFEAC8;">
+            <div class="heading d-grid gap_8 mb_24">
+                <h5>Скидка 5% на курс испанского + спецкурс в подарок для новых клиентов!</h5>
+                <p>Оставьте заявку, чтобы получить скидку и подарок</p>
+            </div>
+            <a href="#" class="tf-btn btn-border w-full" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="gift_discount_5" style="--button-width: 352px;">
+                <span>Получить подарок</span>
+                <span class="bg-effect"></span>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- Модалка -->
+<div class="modal fade" id="consultModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 500px;">
+        <div class="modal-content" style="border-radius: 16px; overflow: hidden; border: none;">
+            <img src="https://espacademia.com/wp-content/uploads/2024/01/forma-min.webp" alt="" style="width: 100%;">
+            <div style="padding: 30px;">
+                <form id="consultForm" method="post" action="/contact/" novalidate>
+                    {% csrf_token %}
+                    <input type="hidden" name="source" id="modalSource" value="modal_consult">
+                    <div class="mb_16">
+                        <input type="text" name="name" placeholder="ФИО" class="form-input-custom" required>
+                    </div>
+                    <div class="mb_16">
+                        <input type="tel" id="modal-phone-input" name="phone" placeholder="Номер телефона" class="form-input-custom" required autocomplete="off">
+                        <input type="hidden" name="full_phone" id="modal_full_phone">
+                        <span class="field-error" id="modalPhoneError"></span>
+                    </div>
+                    <div class="mb_16">
+                        <input type="email" id="modal-email" name="email" placeholder="Email" class="form-input-custom" required>
+                        <span class="field-error" id="modalEmailError"></span>
+                    </div>
+                    <div class="mb_16">
+                        <select name="interest" class="form-input-custom" required>
+                            <option value="" disabled selected>Что Вас интересует?</option>
+                            <option value="courses">Курсы</option>
+                            <option value="club">Разговорный клуб</option>
+                            <option value="individual">Индивидуальные занятия</option>
+                            <option value="dele">Подготовка к DELE</option>
+                            <option value="kids">Испанский для детей</option>
+                        </select>
+                    </div>
+                    <div class="mb_16">
+                        <select name="level" class="form-input-custom" required>
+                            <option value="" disabled selected>Какой уровень Вас интересует?</option>
+                            <option value="A1">Нулевой (A1)</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">С1</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="tf-btn btn-bg-1 w-full" style="--button-width: 440px;">
+                        <span>Отправить</span>
+                        <span class="bg-effect"></span>
+                    </button>
+                    <p style="font-size: 13px; color: #888; margin-top: 12px; text-align: center;">
+                        Отправляя данные, я даю согласие на <a href="/privacy-policy/" target="_blank">их обработку</a>
+                    </p>
+                </form>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть" style="position: absolute; top: 12px; right: 12px; background-color: rgba(255,255,255,0.8); border-radius: 50%; padding: 8px;"></button>
+        </div>
+    </div>
+</div>
+</div>
+<style>
+@media screen and (max-width: 649px) {
+    .pricing-item-mobile {
+        padding: 28px 15px;
+    }
+}
+.field-error {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 4px;
+    display: block;
+}
+.input-error {
+    border-color: #e74c3c !important;
+}
+.iti {
+    width: 100%;
+}
+.iti input[type="tel"] {
+    width: 100%;
+}
+.form-input-custom,
+#consultModal select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    color: #333;
+}
+.form-input-custom:focus {
+    border-color: #f9ad33;
+}
+#consultModal select:invalid {
+    color: #999;
+}
+.hero-offers-decor {
+    position: absolute;
+    width: 280px;
+    pointer-events: none;
+    z-index: 0;
+    animation: heroFloat 4s ease-in-out infinite;
+}
+
+.hero-offers-decor-left {
+    left: 0;
+    top: 34%;
+}
+
+.hero-offers-decor-right {
+    right: 0;
+    top: 40%;
+    animation-delay: -2s;
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.hero-offers-decor + .hero-offers-decor + .heading-section,
+.tf-grid-layout {
+    position: relative;
+    z-index: 1;
+}
+
+@media screen and (max-width: 1200px) {
+    .hero-offers-decor {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .hero-offers-decor {
+        display: none;
+    }
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var modalPhone = document.querySelector('#modal-phone-input');
+    var modalIti;
+
+    // Прокидываем source от кнопки
+    document.getElementById('consultModal').addEventListener('show.bs.modal', function(e) {
+        var trigger = e.relatedTarget;
+        if (trigger && trigger.dataset.source) {
+            document.getElementById('modalSource').value = trigger.dataset.source;
+        } else {
+            document.getElementById('modalSource').value = 'modal_consult';
+        }
+    });
+
+    // Инициализация intl-tel-input при открытии
+    document.getElementById('consultModal').addEventListener('shown.bs.modal', function() {
+        if (!modalIti) {
+            modalIti = window.intlTelInput(modalPhone, {
+                initialCountry: 'ru',
+                preferredCountries: ['ru', 'es', 'de', 'fr', 'it', 'gb', 'us'],
+                separateDialCode: true,
+                utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@21/build/js/utils.js'
+            });
+        }
+    });
+
+    // Валидация при отправке
+    document.getElementById('consultForm').addEventListener('submit', function(e) {
+        var valid = true;
+
+        // Телефон
+        var phoneErr = document.getElementById('modalPhoneError');
+        if (modalIti && !modalIti.isValidNumber()) {
+            phoneErr.textContent = 'Введите корректный номер телефона';
+            modalPhone.classList.add('input-error');
+            valid = false;
+        } else {
+            phoneErr.textContent = '';
+            modalPhone.classList.remove('input-error');
+            if (modalIti) document.getElementById('modal_full_phone').value = modalIti.getNumber();
+        }
+
+        // Email
+        var emailInput = document.getElementById('modal-email');
+        var emailErr = document.getElementById('modalEmailError');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+            emailErr.textContent = 'Введите корректный email';
+            emailInput.classList.add('input-error');
+            valid = false;
+        } else {
+            emailErr.textContent = '';
+            emailInput.classList.remove('input-error');
+        }
+
+        if (!valid) e.preventDefault();
+    });
+});
+</script>

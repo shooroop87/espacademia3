@@ -1,13 +1,72 @@
-<!-- section-about -->
-<div class="section-about tf-spacing-8" id="about">
+<!-- section-call-back -->
+<div class="section-call-back tf-spacing-6" id="callback">
     <div class="tf-container">
-        <div class="tf-grid-layout md-col-12">
-            <div class="box">
-                {% if settings.about_text %}
-                    {{ settings.about_text|safe }}
-                {% else %}
-                    <p class="mb_8"><b>espacademia.com</b> — независимый рейтинг застройщиков и девелоперов на Бали, который помогает инвесторам и покупателям выбрать надежную компанию и проект для вложений.</p>
-                {% endif %}
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="left">
+                    <div class="heading-section mb_40">
+                        <span class="sub text-uppercase fw-6 text_secondary-color-2">Запишитесь</span>
+                        <h3>Бесплатная консультация</h3>
+                        <p class="text-body-2">Оставьте заявку и мы поможем подобрать курс, расскажем о методике и ответим на все вопросы.</p>
+                    </div>
+                    <div class="info tf-grid-layout md-col-2">
+                        <div class="item effect-icon">
+                            <div class="icon"><i class="icon-PhoneCall"></i></div>
+                            <div>
+                                <div class="text-title fw-6 text_primary-color mb_4">WhatsApp</div>
+                                <p>+34 XXX XXX XXX</p>
+                            </div>
+                        </div>
+                        <div class="item effect-icon">
+                            <div class="icon"><i class="icon-Envelope"></i></div>
+                            <div>
+                                <div class="text-title fw-6 text_primary-color mb_4">Email</div>
+                                <a href="mailto:info@espacademia.com" class="link text_secondary-color">info@espacademia.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <form class="form-call-back" method="post" action="{% url 'contact_request' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="source" value="callback">
+                    <div class="tf-grid-layout sm-col-2 gap_20 mb_20">
+                        <fieldset>
+                            <label for="fullName" class="text-button text_primary-color fw-7 mb_8">Ваше имя</label>
+                            <input id="fullName" type="text" placeholder="Как вас зовут?" name="name" required>
+                        </fieldset>
+                        <fieldset>
+                            <label for="email" class="text-button text_primary-color fw-7 mb_8">Email</label>
+                            <input id="email" type="email" placeholder="Ваш email" name="email" required>
+                        </fieldset>
+                    </div>
+                    <div class="tf-grid-layout sm-col-2 gap_20 mb_24">
+                        <fieldset>
+                            <label for="phone" class="text-button text_primary-color fw-7 mb_8">Телефон / WhatsApp</label>
+                            <input id="phone" type="tel" placeholder="+7 (___) ___-__-__" name="phone">
+                        </fieldset>
+                        <div>
+                            <div class="text-button text_primary-color mb_8">Что вас интересует?</div>
+                            <div class="nice-select" tabindex="0">
+                                <span class="current">Групповые занятия</span>
+                                <ul class="list">
+                                    <li data-value="group" class="option selected">Групповые занятия</li>
+                                    <li data-value="individual" class="option">Индивидуальные уроки</li>
+                                    <li data-value="intensive" class="option">Интенсивный курс</li>
+                                    <li data-value="kids" class="option">Испанский для детей</li>
+                                    <li data-value="business" class="option">Бизнес-испанский</li>
+                                    <li data-value="dele" class="option">Подготовка к DELE</li>
+                                    <li data-value="trial" class="option">Пробный урок</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="tf-btn btn-bg-1 btn-px-28 w-full" type="submit">
+                        <span>Записаться на консультацию</span>
+                        <span class="bg-effect"></span>
+                    </button>
+                </form>
             </div>
         </div>
     </div>

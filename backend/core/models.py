@@ -1,55 +1,6 @@
 from django.db import models
 
 
-class Video(models.Model):
-    """Видео от застройщиков"""
-    title = models.CharField("Название", max_length=255)
-    youtube_id = models.CharField(
-        "YouTube ID", 
-        max_length=20,
-        help_text="ID из ссылки YouTube. Пример: для https://www.youtube.com/watch?v=W7uANluGQSY&t=2s введите: W7uANluGQSY"
-    )
-    
-    developer = models.ForeignKey(
-        "developers.Developer", on_delete=models.SET_NULL,
-        null=True, blank=True, related_name="videos",
-        verbose_name="Застройщик"
-    )
-    
-    # Превью - либо файл, либо URL
-    thumbnail = models.ImageField("Превью (файл)", upload_to="videos/", blank=True)
-    thumbnail_url_external = models.URLField(
-        "Превью (ссылка)", 
-        blank=True,
-        help_text="Или вставьте ссылку на изображение. Пример: https://img.youtube.com/vi/W7uANluGQSY/maxresdefault.jpg"
-    )
-    
-    views = models.PositiveIntegerField("Просмотры", default=0)
-    is_active = models.BooleanField("Активно", default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name = "Видео"
-        verbose_name_plural = "Видео"
-        ordering = ["-created_at"]
-
-    def __str__(self):
-        return self.title
-
-    @property
-    def youtube_url(self):
-        return f"https://www.youtube.com/watch?v={self.youtube_id}"
-
-    @property
-    def thumbnail_url(self):
-        # Приоритет: загруженный файл > внешняя ссылка > автоматическая от YouTube
-        if self.thumbnail:
-            return self.thumbnail.url
-        if self.thumbnail_url_external:
-            return self.thumbnail_url_external
-        return f"https://img.youtube.com/vi/{self.youtube_id}/maxresdefault.jpg"
-
-
 class ContactRequest(models.Model):
     """Заявки на консультацию"""
     name = models.CharField("Имя", max_length=100)
@@ -160,142 +111,6 @@ class CodeSnippet(models.Model):
         return f"{self.name} ({self.get_location_display()})"
 
 
-class BannerPlacement(models.Model):
-    """Места размещения баннеров"""
-    PLACEMENT_CHOICES = [
-        ('banner_top', 'Верхний баннер (с табами)'),
-        ('banner_middle1', 'Средний баннер 1'),
-        ('banner_middle2', 'Средний баннер 2'),
-        ('sidebar', 'Сайдбар'),
-    ]
-    
-    code = models.CharField("Код", max_length=50, unique=True, choices=PLACEMENT_CHOICES)
-    name = models.CharField("Название", max_length=100)
-    description = models.TextField("Описание", blank=True)
-    
-    class Meta:
-        verbose_name = "Место размещения"
-        verbose_name_plural = "Места размещения"
-    
-    def __str__(self):
-        return self.name
-
-
-class Banner(models.Model):
-    """Рекламный баннер"""
-    title = models.CharField("Название (для админки)", max_length=255)
-    
-    placement = models.ForeignKey(
-        BannerPlacement, on_delete=models.CASCADE,
-        related_name='banners', verbose_name="Место размещения"
-    )
-    
-    # Привязка к категории девелоперов (только для banner_top)
-    developer_category = models.ForeignKey(
-        'developers.DeveloperCategory', on_delete=models.SET_NULL,
-        null=True, blank=True, related_name='banners',
-        verbose_name="Категория девелоперов",
-        help_text="Только для верхнего баннера с табами"
-    )
-    
-    # Desktop изображения
-    image_desktop = models.ImageField(
-        "Изображение Desktop", upload_to="banners/desktop/", blank=True
-    )
-    image_desktop_url = models.URLField(
-        "Или URL Desktop", blank=True,
-        help_text="Внешняя ссылка на изображение (если не загружаете файл)"
-    )
-    
-    # Mobile изображения
-    image_mobile = models.ImageField(
-        "Изображение Mobile", upload_to="banners/mobile/", blank=True
-    )
-    image_mobile_url = models.URLField(
-        "Или URL Mobile", blank=True,
-        help_text="Внешняя ссылка на мобильное изображение"
-    )
-    
-    # Ссылка и настройки
-    link = models.URLField("Ссылка при клике", blank=True)
-    open_popup = models.BooleanField(
-        "Открывать popup заявки", default=True,
-        help_text="Если включено, при клике откроется форма заявки вместо перехода по ссылке"
-    )
-    alt_text = models.CharField("Alt текст", max_length=255, default="Баннер")
-    
-    order = models.PositiveIntegerField("Порядок", default=0)
-    is_active = models.BooleanField("Активен", default=True)
-    
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    popup = models.ForeignKey(
-        'Popup', on_delete=models.SET_NULL,
-        null=True, blank=True, related_name='banners',
-        verbose_name="Popup окно",
-        help_text="Кастомный popup при клике (вместо стандартного)"
-    )
-    
-    class Meta:
-        verbose_name = "Баннер"
-        verbose_name_plural = "Баннеры"
-        ordering = ['placement', 'order']
-    
-    def __str__(self):
-        return f"{self.title} ({self.placement})"
-    
-    @property
-    def desktop_url(self):
-        if self.image_desktop:
-            return self.image_desktop.url
-        return self.image_desktop_url or ''
-    
-    @property
-    def mobile_url(self):
-        if self.image_mobile:
-            return self.image_mobile.url
-        return self.image_mobile_url or self.desktop_url  # fallback на desktop
-    
-    @property
-    def click_action(self):
-        """Возвращает атрибуты для клика"""
-        if self.open_popup:
-            return 'data-popup="#popup-lead"'
-        elif self.link:
-            return f'href="{self.link}" target="_blank"'
-        return 'href="#"'
-    
-
-class Partner(models.Model):
-    """Официальные партнеры"""
-    name = models.CharField("Название", max_length=100)
-    
-    logo = models.ImageField("Логотип (файл)", upload_to="partners/", blank=True)
-    logo_url = models.URLField("Или URL логотипа", blank=True)
-    
-    website = models.URLField("Сайт партнера", blank=True)
-    
-    order = models.PositiveIntegerField("Порядок", default=0)
-    is_active = models.BooleanField("Активен", default=True)
-    
-    created_at = models.DateTimeField(auto_now_add=True)
-    
-    class Meta:
-        verbose_name = "Партнер"
-        verbose_name_plural = "Партнеры"
-        ordering = ['order', 'name']
-    
-    def __str__(self):
-        return self.name
-    
-    @property
-    def logo_image(self):
-        if self.logo:
-            return self.logo.url
-        return self.logo_url or ''
-
-
 class Popup(models.Model):
     """Кастомные popup окна"""
     name = models.CharField("Название (для админки)", max_length=100)
@@ -395,3 +210,56 @@ class HeaderButton(models.Model):
     
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    """Отзывы студентов"""
+    user_name = models.CharField("Имя", max_length=100)
+    user_avatar = models.ImageField("Аватар (файл)", upload_to="reviews/", blank=True)
+    user_avatar_url = models.URLField("Или URL аватара", blank=True)
+    
+    text = models.TextField("Текст отзыва")
+    rating = models.PositiveIntegerField("Рейтинг", default=5, help_text="От 1 до 5")
+    
+    is_active = models.BooleanField("Активен", default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    course_name = models.CharField("Курс", max_length=100, blank=True, help_text="Например: Курс А1, Курс B2")
+
+    class Meta:
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзывы"
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.user_name} — {self.rating}★"
+
+    def get_avatar(self):
+        if self.user_avatar:
+            return self.user_avatar.url
+        return self.user_avatar_url or ''
+    
+
+class WhySpanishItem(models.Model):
+    MEDIA_TYPE_CHOICES = [
+        ('image', 'Изображение'),
+        ('video', 'Видео'),
+    ]
+    
+    title = models.CharField('Заголовок', max_length=200)
+    emoji = models.CharField('Эмодзи', max_length=10, blank=True)
+    description = models.TextField('Описание')
+    media_type = models.CharField('Тип медиа', max_length=5, choices=MEDIA_TYPE_CHOICES, default='image')
+    image = models.ImageField('Изображение', upload_to='why_spanish/', blank=True)
+    video_url = models.URLField('Ссылка на видео (YouTube)', blank=True)
+    video_poster = models.ImageField('Обложка видео', upload_to='why_spanish/posters/', blank=True)
+    order = models.PositiveIntegerField('Порядок', default=0)
+    is_active = models.BooleanField('Активно', default=True)
+
+    class Meta:
+        ordering = ['order']
+        verbose_name = 'Преимущество испанского'
+        verbose_name_plural = 'Преимущества испанского'
+
+    def __str__(self):
+        return self.title

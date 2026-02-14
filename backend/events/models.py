@@ -31,14 +31,6 @@ class Event(models.Model):
     latitude = models.DecimalField("Широта", max_digits=9, decimal_places=6, null=True, blank=True)
     longitude = models.DecimalField("Долгота", max_digits=9, decimal_places=6, null=True, blank=True)
     
-    # Организатор
-    organizer_name = models.CharField("Организатор", max_length=255, blank=True)
-    organizer = models.ForeignKey(
-        "developers.Developer", on_delete=models.SET_NULL,
-        null=True, blank=True, related_name="events",
-        verbose_name="Застройщик-организатор"
-    )
-    
     # Регистрация
     registration_url = models.URLField("Ссылка на регистрацию", blank=True)
     

@@ -4,7 +4,7 @@ from django.db.models import Count
 from django.db.models import Prefetch
 
 from events.models import Event
-from .models import Video, FAQ, SiteSettings, Banner, Partner
+from .models import FAQ, Review, SiteSettings, WhySpanishItem
 
 from django.views.decorators.http import require_POST
 
@@ -15,15 +15,19 @@ def index(request):
     # Настройки сайта
     settings = SiteSettings.get()
 
+    why_spanish_items = WhySpanishItem.objects.filter(is_active=True)
+
     # Мероприятия
     upcoming_events = Event.objects.filter(status='upcoming').order_by('event_date')[:2]
 
     # FAQ
     faqs = FAQ.objects.filter(is_active=True)
-    
+
     context = {
         'settings': settings,
         'faqs': faqs,
+        'why_spanish_items': why_spanish_items,
+        'reviews': Review.objects.filter(is_active=True)[:10],
     }
     
     return render(request, "pages/index.html", context)

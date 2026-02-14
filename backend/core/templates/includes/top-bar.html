@@ -1,60 +1,103 @@
 {% load static i18n %}
 <!-- Top Bar -->
 <div class="top-bar" id="top-bar">
-    <div class="tf-container">
+    <div class="tf-container w-xxl">
         <div class="top-bar-inner d-flex align-items-center justify-content-between">
-            <!-- Левая часть - ссылки -->
+            <!-- Левая часть -->
             <ul class="top-bar-menu d-flex gap_24 text-body-4">
-                <li><a href="{% url 'properties:list' %}">Объекты недвижимости</a></li>
-                <li><a href="{% url 'news:list' %}">Новости</a></li>
-                <li><a href="{% url 'blog:list' %}">Статьи</a></li>
-                <li><a href="{% url 'video_from_developers' %}">Видео от застройщиков</a></li>
-                <li><a href="{% url 'agencies:list' %}">Cводка от застройщиков</a></li>
-                <li><a href="{% url 'events:list' %}">Мероприятия</a></li>
+                <li style="margin-left: 10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 20 16" width="20pt" height="16pt"><defs><clipPath id="_clipPath_PrtaHOYoN0nNfV9FOIKRLY4ev1531Jud"><rect width="20" height="16"></rect></clipPath></defs><g clip-path="url(#_clipPath_PrtaHOYoN0nNfV9FOIKRLY4ev1531Jud)"><rect width="20" height="16" style="fill:rgb(0,0,0)" fill-opacity="0"></rect><path d=" M 19.5 1.617 C 19.5 1.614 19.5 1.611 19.499 1.608 C 19.498 1.605 19.498 1.598 19.498 1.593 C 19.496 1.571 19.491 1.549 19.484 1.528 C 19.483 1.525 19.484 1.522 19.483 1.519 C 19.481 1.516 19.481 1.517 19.481 1.515 C 19.471 1.492 19.459 1.47 19.444 1.45 C 19.441 1.446 19.437 1.441 19.434 1.437 C 19.419 1.419 19.402 1.404 19.384 1.39 C 19.382 1.389 19.38 1.387 19.378 1.386 C 19.358 1.372 19.336 1.361 19.312 1.353 C 19.307 1.352 19.301 1.35 19.296 1.348 C 19.271 1.341 19.246 1.337 19.22 1.337 L 0.78 1.337 C 0.754 1.337 0.729 1.341 0.704 1.348 C 0.698 1.35 0.693 1.352 0.688 1.353 C 0.664 1.361 0.642 1.372 0.622 1.386 C 0.62 1.387 0.618 1.389 0.616 1.39 C 0.598 1.404 0.581 1.419 0.566 1.437 C 0.563 1.441 0.559 1.446 0.556 1.45 C 0.541 1.47 0.529 1.492 0.519 1.515 C 0.519 1.517 0.518 1.518 0.517 1.519 C 0.517 1.52 0.517 1.525 0.516 1.528 C 0.509 1.549 0.504 1.571 0.502 1.593 C 0.502 1.598 0.501 1.603 0.501 1.608 C 0.501 1.613 0.5 1.614 0.5 1.617 L 0.5 14.382 C 0.5 14.386 0.501 14.39 0.501 14.393 C 0.502 14.403 0.503 14.413 0.504 14.423 C 0.505 14.432 0.507 14.439 0.508 14.448 C 0.511 14.457 0.514 14.467 0.517 14.476 C 0.52 14.484 0.523 14.491 0.526 14.499 C 0.531 14.508 0.536 14.517 0.541 14.526 C 0.545 14.533 0.549 14.539 0.553 14.545 C 0.559 14.554 0.566 14.562 0.573 14.57 C 0.578 14.576 0.584 14.581 0.589 14.587 C 0.593 14.59 0.595 14.593 0.599 14.597 C 0.602 14.6 0.604 14.599 0.607 14.601 C 0.629 14.619 0.653 14.633 0.679 14.643 C 0.685 14.646 0.691 14.647 0.697 14.649 C 0.722 14.657 0.748 14.662 0.775 14.662 C 0.777 14.662 0.779 14.663 0.78 14.663 L 0.784 14.663 L 19.216 14.663 L 19.22 14.663 C 19.221 14.663 19.223 14.662 19.225 14.662 C 19.252 14.662 19.278 14.657 19.303 14.649 C 19.309 14.647 19.315 14.646 19.319 14.643 C 19.346 14.633 19.37 14.619 19.392 14.601 C 19.395 14.599 19.398 14.599 19.4 14.597 C 19.403 14.594 19.407 14.59 19.41 14.587 C 19.416 14.581 19.421 14.576 19.426 14.57 C 19.433 14.562 19.44 14.554 19.446 14.545 C 19.45 14.539 19.454 14.533 19.458 14.526 C 19.463 14.517 19.468 14.508 19.473 14.499 C 19.476 14.491 19.479 14.484 19.482 14.476 C 19.485 14.467 19.488 14.457 19.491 14.448 C 19.492 14.44 19.494 14.432 19.495 14.423 C 19.496 14.413 19.497 14.403 19.498 14.393 C 19.498 14.39 19.499 14.386 19.499 14.382 L 19.5 1.617 Z  M 7.081 7.409 L 9.817 9.762 C 9.922 9.853 10.077 9.853 10.183 9.762 L 12.918 7.409 L 18.612 14.102 L 1.387 14.102 L 7.081 7.409 Z  M 1.061 13.62 L 1.061 2.228 L 6.657 7.043 L 1.061 13.62 Z  M 13.343 7.043 L 18.939 2.228 L 18.939 13.62 L 13.343 7.043 Z  M 18.463 1.897 L 12.77 6.796 C 12.769 6.797 12.768 6.797 12.767 6.798 C 12.766 6.799 12.765 6.8 12.764 6.801 L 10 9.179 L 7.236 6.801 C 7.235 6.8 7.234 6.799 7.233 6.798 L 7.23 6.796 L 1.536 1.897 L 18.463 1.897 Z " fill="rgb(0,0,0)"></path></g></svg>
+                    <a href="mailto:info@espacademia.com">info@espacademia.com</a>
+                </li>
+                <li style="margin-left: 50px;">
+                    <a target="_blank" href="https://vk.com/espacademia">
+					    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 20 16" width="20pt" height="16pt"><defs><clipPath id="_clipPath_q8L4uye8GRHtSM40etrTzqVfLFVh6nyQ"><rect width="20" height="16"></rect></clipPath></defs><g clip-path="url(#_clipPath_q8L4uye8GRHtSM40etrTzqVfLFVh6nyQ)"><rect width="20" height="16" style="fill:rgb(0,0,0)" fill-opacity="0"></rect><path d=" M 11.638 13.164 L 11.638 10.099 C 13.697 10.413 14.348 12.033 15.658 13.164 L 19 13.164 C 18.165 11.298 16.918 9.646 15.354 8.331 C 16.554 6.679 17.828 5.124 18.451 2.765 L 15.414 2.765 C 14.223 4.57 13.595 6.684 11.638 8.077 L 11.638 2.765 L 7.231 2.765 L 8.283 4.067 L 8.283 8.705 C 6.575 8.507 5.422 5.382 4.171 2.765 L 1 2.765 C 2.154 6.3 4.582 14.059 11.638 13.164 Z " fill="none" stroke-width="0.5" stroke="rgb(0,0,0)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"></path></g></svg>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://t.me/espacademia">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 2L11 13" />
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" />
+                    </svg>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://api.whatsapp.com/send/?phone=79032882342&amp;text&amp;type=phone_number&amp;app_absent=0">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 20 16" width="20pt" height="16pt"><defs><clipPath id="_clipPath_hrrqoQ2l5x2eWvnV12c6RKH28XKR0q72"><rect width="20" height="16"></rect></clipPath></defs><g clip-path="url(#_clipPath_hrrqoQ2l5x2eWvnV12c6RKH28XKR0q72)"><rect width="20" height="16" style="fill:rgb(0,0,0)" fill-opacity="0"></rect><path d=" M 10.003 0.96 C 7.515 0.962 5.213 2.277 3.946 4.418 C 2.679 6.56 2.635 9.21 3.83 11.392 L 2.963 15.04 L 6.611 14.173 C 9.188 15.587 12.373 15.25 14.599 13.328 C 16.824 11.406 17.62 8.304 16.596 5.548 C 15.572 2.792 12.943 0.962 10.003 0.96 Z  M 6.483 4.159 L 8.402 4.159 C 8.583 4.159 8.729 4.306 8.729 4.486 C 8.718 4.923 8.792 5.358 8.945 5.767 C 9.082 6.05 8.99 6.39 8.729 6.566 L 8.058 7.221 C 8.356 7.802 8.745 8.331 9.211 8.789 C 9.665 9.263 10.192 9.66 10.773 9.965 L 11.427 9.293 C 11.755 8.966 11.906 8.966 12.226 9.077 C 12.635 9.231 13.07 9.304 13.507 9.293 C 13.684 9.302 13.826 9.444 13.834 9.621 L 13.834 11.54 C 13.826 11.717 13.684 11.859 13.507 11.867 C 11.581 11.783 9.755 10.985 8.385 9.627 C 7.026 8.26 6.227 6.433 6.146 4.506 C 6.147 4.319 6.296 4.166 6.483 4.159 L 6.483 4.159 Z " fill="none" stroke-width="0.5" stroke="rgb(0,0,0)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4"></path></g></svg>
+                    </a>
+                </li>
             </ul>
 
             <!-- Правая часть -->
-            <div class="top-bar-right d-flex align-items-center gap_16">
-                <!-- Переключатель языка -->
-                <div class="lang-switcher">
-                    <div class="lang-current">
-                        <img src="https://espacademia.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/ru_RU.png" alt="RU" class="lang-flag">
-                        <i class="icon-CaretDown"></i>
-                    </div>
-                    <div class="menu-lang">
-                        <a class="dropdown-item active" href="#">
-                            <img src="https://espacademia.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/ru_RU.png" alt="RU" class="lang-flag">
-                            Русский
-                        </a>
-                        <a class="dropdown-item" href="/en/">
-                            <img src="https://espacademia.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_US.png" alt="EN" class="lang-flag">
-                            English
-                        </a>
-                    </div>
-                </div>
-                <!-- Соцсети -->
-                <ul class="social d-flex gap_12">
-                    {% if site_settings.telegram_link %}
-                    <li><a href="{{ site_settings.telegram_link }}" target="_blank" class="icon-TelegramLogo"></a></li>
-                    {% endif %}
-                    {% if site_settings.whatsapp_link %}
-                    <li><a href="{{ site_settings.whatsapp_link }}" target="_blank" class="icon-WhatsappLogo"></a></li>
-                    {% endif %}
-                    {% if site_settings.instagram_link %}
-                    <li><a href="{{ site_settings.instagram_link }}" target="_blank" class="icon-InstagramLogo"></a></li>
-                    {% endif %}
-                </ul>
+            <div class="top-bar-right d-flex align-items-center gap_8">
+                <span class="text-body-4 we-are">Мы научим вас не только говорить, но и думать по-испански!</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+</svg>
+                <a href="tel:+79262576680" class="text-body-4">
+
+                    <span class="pum-trigger">Позвонить</span></a>
+                <a href="#" class="text-body-4 pum-trigger" style="margin-left: 20px;" data-bs-toggle="modal" data-bs-target="#callbackModal">Перезвоните мне +7 926 257 6680</a>
             </div>
         </div>
     </div>
 </div>
+<!-- Модалка перезвонить -->
+<div class="modal fade" id="callbackModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 420px;">
+        <div class="modal-content" style="border-radius: 16px; overflow: hidden; border: none; padding: 30px;">
+            <h5 style="margin-bottom: 20px; text-align: center;">Перезвоните мне</h5>
+            <form id="callbackForm" method="post" action="/contact/" novalidate>
+                {% csrf_token %}
+                <input type="hidden" name="source" value="callback_topbar">
+                <div class="mb_16">
+                    <input type="text" name="name" placeholder="ФИО" class="form-input-custom" required>
+                </div>
+                <div class="mb_16">
+                    <input type="tel" id="cb-phone-input" name="phone" placeholder="Номер телефона" class="form-input-custom" required autocomplete="off">
+                    <input type="hidden" name="full_phone" id="cb_full_phone">
+                    <span class="field-error" id="cbPhoneError"></span>
+                </div>
+                <button type="submit" class="tf-btn btn-bg-1 w-full" style="--button-width: 360px;">
+                    <span>Отправить</span>
+                    <span class="bg-effect"></span>
+                </button>
+                <p style="font-size: 13px; color: #888; margin-top: 12px; text-align: center;">
+                    Отправляя данные, я даю согласие на <a href="/privacy-policy/" target="_blank">их обработку</a>
+                </p>
+            </form>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть" style="position: absolute; top: 12px; right: 12px;"></button>
+        </div>
+    </div>
+</div>
 <style>
+.pum-trigger::before {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    right: 0px;
+    background: #717171;
+    height: 1px;
+    content: "";
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+.top-bar a {
+    position: relative;
+    display: inline-block;
+    color: #000;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
 .top-bar {
-    background: #f8f7f3;
-    padding: 0 0 0.625rem 0;
+    background: #FFFDF5;
+    padding: 0 0 1rem 0;
     position: relative;
     z-index: 9999;
     overflow: visible !important;
+    border-bottom: 1px solid #ece3e3;
 }
 
 #top-bar > div {
@@ -70,7 +113,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 32px;
+    gap: 12px;
 }
 
 .top-bar-menu li a {
@@ -83,6 +126,10 @@
     color: #e4e95b;
 }
 
+.we-are {
+    margin-right: 50px;
+}
+
 .top-bar .social a {
     color: #6c757d;
     font-size: 22px;
@@ -93,62 +140,14 @@
     color: #eaf050;
 }
 
-/* Переключатель языка */
-.lang-switcher {
-    position: relative;
-    cursor: pointer;
+.top-bar-right a {
+    color: rgb(50 51 52);
+    font-size: 15px;
+    transition: color 0.3s;
 }
 
-.lang-current {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.lang-flag {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.menu-lang {
-    position: absolute;
-    top: calc(100% + 5px);
-    right: 0;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    padding: 8px 0;
-    min-width: 140px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s;
-    z-index: 999999 !important;
-}
-
-.lang-switcher:hover .menu-lang {
-    opacity: 1;
-    visibility: visible;
-}
-
-.menu-lang .dropdown-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 16px;
-    color: #333;
-    background: #fff;
-    transition: background 0.3s;
-}
-
-.menu-lang .dropdown-item:hover {
-    background: #f5f5f5;
-}
-
-.menu-lang .lang-flag {
-    width: 20px;
-    height: 20px;
+.top-bar-right a:hover {
+    color: #e4e95b;
 }
 
 @media (max-width: 991px) {
@@ -157,3 +156,34 @@
     }
 }
 </style>
+<script>
+// Callback модалка
+var cbPhone = document.querySelector('#cb-phone-input');
+var cbIti;
+
+document.getElementById('callbackModal').addEventListener('shown.bs.modal', function() {
+    if (!cbIti) {
+        cbIti = window.intlTelInput(cbPhone, {
+            initialCountry: 'ru',
+            preferredCountries: ['ru', 'es', 'de', 'fr', 'it', 'gb', 'us'],
+            separateDialCode: true,
+            utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@21/build/js/utils.js'
+        });
+    }
+});
+
+document.getElementById('callbackForm').addEventListener('submit', function(e) {
+    var valid = true;
+    var phoneErr = document.getElementById('cbPhoneError');
+    if (cbIti && !cbIti.isValidNumber()) {
+        phoneErr.textContent = 'Введите корректный номер телефона';
+        cbPhone.classList.add('input-error');
+        valid = false;
+    } else {
+        phoneErr.textContent = '';
+        cbPhone.classList.remove('input-error');
+        if (cbIti) document.getElementById('cb_full_phone').value = cbIti.getNumber();
+    }
+    if (!valid) e.preventDefault();
+});
+</script>

@@ -16,7 +16,7 @@
         {% include 'includes/top-bar.html' %}
         {% include 'includes/header.html' %}
 
-        <main class="main-content tf-spacing-8" style="background-color: #f8f7f3;padding-bottom: 0px;">
+        <main class="main-content tf-spacing-8" style="padding-bottom: 0px;background-color: #FFFDF5;">
             {% block content %}{% endblock %}
         </main>
 
@@ -30,5 +30,7 @@
     
     {% block extra_js %}{% endblock %}
     {% for snippet in snippets_body_end %}{{ snippet.code|safe }}{% endfor %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@21/build/css/intlTelInput.css">
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@21/build/js/intlTelInput.min.js"></script>
 </body>
 </html>

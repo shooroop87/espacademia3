@@ -1,0 +1,78 @@
+<div style="background-color: #fff;">
+<!-- section-faq -->
+<div class="section-faqs-1 tf-spacing-4" id="faq">
+    <div class="tf-container">
+        <div class="tf-grid-layout lg-col-2">
+            <!-- Левая часть - картинка и CTA -->
+            <div class="box-faqs">
+                <div class="thumbs" style="padding: 0px;">
+                    <img src="https://espacademia.com/wp-content/uploads/2024/03/000about_school-min.jpg" width="600" height="660" alt="ESPacademia" style="object-fit: cover;">
+                </div>
+                <div class="content">
+                    <h3 class="title text_white mb_12">Остались вопросы?</h3>
+                    <p class="text_white text-body-2 mb_20">Запишитесь на бесплатную консультацию — расскажем о курсах, методике и поможем выбрать программу обучения.</p>
+                    <a href="#callback" class="tf-btn btn-bg-1 btn-px-28">
+                        <span>Записаться на консультацию</span>
+                        <span class="bg-effect"></span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Правая часть - FAQ аккордеон -->
+            <div class="wrap-accordion">
+                <div class="heading-section mb_48">
+                    <span class="sub text-uppercase fw-6 text_secondary-color-2">FAQ</span>
+                    <h3>Вопросы и ответы</h3>
+                </div>
+                <ul class="accordion-wrap" id="accordion-faq">
+                    {% for faq in faqs %}
+                    <li class="accordion-item">
+                        <a href="#accordion-faq-{{ faq.id }}" class="accordion-title {% if not forloop.first %}collapsed{% endif %}" data-bs-toggle="collapse" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="accordion-faq-{{ faq.id }}">
+                            <div class="heading">
+                                <h6 class="title text-title text_primary-color fw-6">{{ faq.question }}</h6>
+                                <span class="icon icon-CaretDown"></span>
+                            </div>
+                        </a>
+                        <div id="accordion-faq-{{ faq.id }}" class="collapse {% if forloop.first %}show{% endif %}" data-bs-parent="#accordion-faq">
+                            <div class="accordion-faqs-content">
+                                <p>{{ faq.answer }}</p>
+                            </div>
+                        </div>
+                    </li>
+                    {% empty %}
+                    <li class="text-center text_secondary-color py-4">
+                        Вопросы пока не добавлены
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<style>
+.section-faqs-1 .tf-grid-layout.lg-col-2 {
+    display: grid;
+    align-items: center;
+}
+.box-faqs {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.box-faqs .thumbs {
+    flex: 1;
+}
+
+.box-faqs .content {
+    margin-top: auto;
+}
+.section-faqs-1 .box-faqs .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 48px;
+}
+</style>

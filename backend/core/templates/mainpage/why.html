@@ -1,0 +1,349 @@
+{% load static i18n %}
+<!-- section-why-spanish -->
+<div style="background-color: #fff;">
+<div class="section-process tf-spacing-1" id="why-spanish">
+    <div class="tf-container">
+        <div class="row tabs-hover-wrap align-items-center">
+            <div class="col-lg-5">
+                <div class="heading-section mb_48">
+                    <span class="sub text-uppercase fw-6 text_secondary-color-2">Преимущества</span>
+                    <h3>Зачем учить испанский язык?</h3>
+                </div>
+                {% for item in why_spanish_items %}
+                <div class="process-item item{% if forloop.first %} active{% endif %}" data-tab="tab{{ forloop.counter }}">
+                    <span class="line"></span>
+                    <div class="content">
+                        <h6 class="title mb_8">{{ item.emoji }} {{ item.title }}</h6>
+                        <p>{{ item.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-lg-7">
+                <div class="tab-content-wrap">
+                    {% for item in why_spanish_items %}
+                    <div id="tab{{ forloop.counter }}" class="tab-content{% if forloop.first %} active{% endif %}">
+                        {% if item.media_type == 'video' and item.video_url %}
+                        <div class="widget-video">
+                            <img loading="lazy" src="{{ item.video_poster.url }}" alt="{{ item.title }}" width="690" height="518">
+                            <a href="{{ item.video_url }}" class="popup-youtube">
+                                <img src="{% static 'icons/play.svg' %}" alt="play">
+                            </a>
+                        </div>
+                        {% else %}
+                        {% if item.image %}
+<div class="img-style">
+    <img loading="lazy" src="{{ item.image.url }}" width="690" height="518" alt="{{ item.title }}">
+</div>
+{% endif %}
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Кнопка -->
+<div class="tf-spacing-1 section-consult-btn" style="padding: 0;">
+    <button class="tf-btn btn-px-28" type="button" data-bs-toggle="modal" data-bs-target="#consultModal" style="--button-width: 330px;">
+        <span>Записаться на консультацию</span>
+        <span class="bg-effect"></span>
+    </button>
+</div>
+<div class="tf-spacing-1" style="background-color: #fff;">
+    <div class="tf-container" style="background-color: #fff;">
+    <div class="tf-grid-layout lg-col-3">
+        <!-- Студенты -->
+        <div class="discount-card" style="background-color: #EEFFC7;">
+            <div class="discount-card__icon">
+                <img src="https://espacademia.com/wp-content/uploads/2024/01/student.png" alt="Студент">
+            </div>
+            <div class="discount-card__content">
+                <h6>Испанский для студентов -5%</h6>
+                <p class="text_primary-color">Для тех, кто думает о будущем и знает, что самая лучшая инвестиция – это инвестиция в своё образование. Необходим студенческий билет.</p>
+            </div>
+        </div>
+        <!-- Приведи друга -->
+        <div class="discount-card" style="background-color: #EED0F8;">
+            <div class="discount-card__icon">
+                <img src="https://espacademia.com/wp-content/uploads/2024/01/online-learning.png" alt="Друг">
+            </div>
+            <div class="discount-card__content">
+                <h6>Приведи друга и получи - 5%</h6>
+                <p class="text_primary-color">Найти подходящие курсы – непросто. Помогите другим, порекомендуйте нас и получите скидку 5% за каждого приведенного друга.</p>
+            </div>
+        </div>
+        <!-- Старше 55/60 -->
+        <div class="discount-card" style="background-color: #FFEAC8;">
+            <div class="discount-card__icon">
+                <img src="https://espacademia.com/wp-content/uploads/2024/01/champion-1.png" alt="Кубок">
+            </div>
+            <div class="discount-card__content">
+                <h6>Люди старше 55/60 лет -5%</h6>
+                <p class="text_primary-color">Никогда не поздно выучить новый язык. Посвятите себя новому хобби и получите скидку на обучение.</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt_24">
+        <p class="text-small">* Скидка действует при оплате любого курса или абонемента на 10 и более индивидуальных занятий.</p>
+        <p class="text-small">** Скидки не суммируются. Скидка действует на следующий платёж.</p>
+    </div>
+</div>
+</div>
+<style>
+.discount-card {
+    padding: 15px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.discount-card__icon {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+}
+.discount-card__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.discount-card__content h6 {
+    margin-bottom: 8px;
+}
+.discount-card__content p {
+    font-size: 15px;
+    line-height: 1.5;
+}
+.text-small {
+    font-size: 15px;
+    color: #000;
+}
+div.discount-card__content > h6 {
+    font-size: 20px;
+}
+.btn-px-28 {
+    padding-left: 28px;
+    padding-right: 28px;
+}
+@media screen and (max-width: 649px) {
+    .discount-card {
+        padding: 20px 15px;
+    }
+    .discount-card__icon {
+        display: none;
+    }
+}
+@media screen and (max-width: 991px) {
+    .tabs-hover-wrap .tab-content-wrap {
+        min-height: auto !important;
+    }
+}
+</style>
+</div>
+</div>
+<!-- Модалка -->
+<div class="modal fade" id="consultModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 500px;">
+        <div class="modal-content" style="border-radius: 16px; overflow: hidden; border: none;">
+            <img src="https://espacademia.com/wp-content/uploads/2024/01/forma-min.webp" alt="" style="width: 100%;">
+            <div style="padding: 30px;">
+                <form id="consultForm" method="post" action="/contact/" novalidate>
+                    {% csrf_token %}
+                    <input type="hidden" name="source" value="modal_consult">
+                    <div class="mb_16">
+                        <input type="text" name="name" placeholder="ФИО" class="form-input-custom" required>
+                    </div>
+                    <div class="mb_16">
+                        <input type="tel" id="modal-phone-input" name="phone" placeholder="Номер телефона" class="form-input-custom" required autocomplete="off">
+                        <input type="hidden" name="full_phone" id="modal_full_phone">
+                        <span class="field-error" id="modalPhoneError"></span>
+                    </div>
+                    <div class="mb_16">
+                        <input type="email" id="modal-email" name="email" placeholder="Email" class="form-input-custom" required>
+                        <span class="field-error" id="modalEmailError"></span>
+                    </div>
+                    <div class="mb_16">
+                        <select name="interest" class="form-input-custom" required>
+                            <option value="" disabled selected>Что Вас интересует?</option>
+                            <option value="courses">Курсы</option>
+                            <option value="club">Разговорный клуб</option>
+                            <option value="individual">Индивидуальные занятия</option>
+                            <option value="dele">Подготовка к DELE</option>
+                            <option value="kids">Испанский для детей</option>
+                        </select>
+                    </div>
+                    <div class="mb_16">
+                        <select name="level" class="form-input-custom" required>
+                            <option value="" disabled selected>Какой уровень Вас интересует?</option>
+                            <option value="A1">Нулевой (A1)</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">С1</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="tf-btn btn-bg-1 w-full" style="--button-width: 440px;">
+                        <span>Отправить</span>
+                        <span class="bg-effect"></span>
+                    </button>
+                    <p style="font-size: 13px; color: #888; margin-top: 12px; text-align: center;">
+                        Отправляя данные, я даю согласие на <a href="/privacy-policy/" target="_blank">их обработку</a>
+                    </p>
+                </form>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть" style="position: absolute; top: 12px; right: 12px; background-color: rgba(255,255,255,0.8); border-radius: 50%; padding: 8px;"></button>
+        </div>
+    </div>
+</div>
+<style>
+.field-error {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 4px;
+    display: block;
+}
+
+.input-error {
+    border-color: #e74c3c !important;
+}
+
+.iti {
+    width: 100%;
+}
+
+.iti input[type="tel"] {
+    width: 100%;
+}
+.form-input-custom,
+#consultModal select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    color: #333;
+}
+
+#consultModal select:invalid {
+    color: #999;
+}
+.section-consult-btn {
+    text-align: center;
+}
+
+.section-consult-btn .tf-btn {
+    background-image: linear-gradient(8deg, rgba(255, 135, 71, 1) 0%, rgba(255, 243, 69, 1) 94%);
+    color: #000;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.section-consult-btn .tf-btn:hover span {
+    color: #fff;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var modalPhone = document.querySelector('#modal-phone-input');
+    var modalIti;
+    
+    document.getElementById('consultModal').addEventListener('shown.bs.modal', function() {
+        if (!modalIti) {
+            modalIti = window.intlTelInput(modalPhone, {
+                initialCountry: 'ru',
+                preferredCountries: ['ru', 'es', 'de', 'fr', 'it', 'gb', 'us'],
+                separateDialCode: true,
+                utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@21/build/js/utils.js'
+            });
+        }
+    });
+
+    document.getElementById('consultForm').addEventListener('submit', function(e) {
+        var valid = true;
+        
+        var phoneErr = document.getElementById('modalPhoneError');
+        if (modalIti && !modalIti.isValidNumber()) {
+            phoneErr.textContent = 'Введите корректный номер телефона';
+            modalPhone.classList.add('input-error');
+            valid = false;
+        } else {
+            phoneErr.textContent = '';
+            modalPhone.classList.remove('input-error');
+            if (modalIti) document.getElementById('modal_full_phone').value = modalIti.getNumber();
+        }
+        
+        var emailInput = document.getElementById('modal-email');
+        var emailErr = document.getElementById('modalEmailError');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+            emailErr.textContent = 'Введите корректный email';
+            emailInput.classList.add('input-error');
+            valid = false;
+        } else {
+            emailErr.textContent = '';
+            emailInput.classList.remove('input-error');
+        }
+        
+        if (!valid) e.preventDefault();
+    });
+});
+</script>
+<style>
+.widget-video {
+    position: relative;
+    display: inline-block;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.widget-video img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.widget-video .popup-youtube {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    z-index: 2;
+}
+
+.widget-video .popup-youtube img {
+    width: 60px;
+    height: 60px;
+}
+.col-lg-7 {
+    display: flex;
+    align-items: center;
+}
+
+.tab-content-wrap {
+    width: 100%;
+}
+.tabs-hover-wrap.align-items-center .col-lg-7 {
+    display: flex;
+    align-items: center;
+}
+
+.tabs-hover-wrap .tab-content-wrap {
+    width: 100%;
+}
+.tabs-hover-wrap .tab-content-wrap {
+    position: relative;
+    min-height: 518px;
+    display: flex;
+    align-items: center;
+}
+</style>
