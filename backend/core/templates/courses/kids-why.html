@@ -1,0 +1,85 @@
+{% load static i18n %}
+<!-- section-why-kids -->
+<div style="background-color: #fff;">
+<div class="tf-container tf-spacing-1" id="why-kids">
+    <div class="heading-section justify-content-center text-center mb_48">
+        <span class="sub text-uppercase fw-6 text_secondary-color-2">Зачем учить</span>
+        <h3>Для чего испанский детям?</h3>
+    </div>
+    <div class="tf-grid-layout md-col-3" style="position: relative;">
+        <div class="card-about item-1 scrolling-effect effectBottom">
+            <div class="content">
+                <h2 class="mb_8">01</h2>
+                <div>
+                    <h4 class="mb_8">Развитие способностей</h4>
+                    <p class="text_primary-color mb_20">Изучение нового языка развивает фантазию и творческие способности ребёнка. У детей развиваются когнитивные способности, помогающие им лучше учиться и в других областях.</p>
+                </div>
+            </div>
+        </div>
+
+<!-- Arrow 1→2 -->
+<svg class="methodology-arrow arrow-1-2" viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 8 Q 50 30, 88 15" stroke="#333" stroke-width="1.5" stroke-dasharray="6 4" fill="none" stroke-linecap="round"/>
+    <circle cx="92" cy="14" r="3.5" fill="#333"/>
+</svg>
+
+        <div class="card-about item-2 scrolling-effect effectBottom">
+            <div class="content">
+                <h2 class="mb_8">02</h2>
+                <div>
+                    <h4 class="mb_8">600 миллионов человек</h4>
+                    <p class="text_primary-color mb_20">На испанском языке говорит около 600 миллионов человек — это огромная часть мира! Выбирая изучение испанского, вы делаете ценный вклад в будущее малыша.</p>
+                </div>
+            </div>
+        </div>
+
+<!-- Arrow 2→3 -->
+<svg class="methodology-arrow arrow-2-3" viewBox="0 0 100 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 22 Q 50 0, 88 15" stroke="#333" stroke-width="1.5" stroke-dasharray="6 4" fill="none" stroke-linecap="round"/>
+    <circle cx="92" cy="16" r="3.5" fill="#333"/>
+</svg>
+
+        <div class="card-about item-3 scrolling-effect effectBottom">
+            <div class="content">
+                <h2 class="mb_8">03</h2>
+                <div>
+                    <h4 class="mb_8">Второй по популярности</h4>
+                    <p class="text_primary-color mb_20">Испанский является вторым по популярности языком после английского. Знание двух иностранных языков открывает огромные перспективы для ребёнка.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<style>
+.card-about.item-1 {
+    background-color: #fff2ec;
+}
+.card-about.item-2 {
+    background-color: #eeffc7;
+}
+.card-about.item-3 {
+    background-color: #ffeac8;
+}
+.methodology-arrow {
+    position: absolute;
+    width: 90px;
+    height: 80px;
+    z-index: 2;
+    display: none;
+}
+@media (min-width: 768px) {
+    .methodology-arrow {
+        display: block;
+    }
+    .arrow-1-2 {
+        top: 30%;
+        left: calc(33.33% - 60px);
+    }
+    .arrow-2-3 {
+        top: 20%;
+        right: calc(33.33% - 60px);
+    }
+}
+.card-about { min-height: 360px; }
+</style>

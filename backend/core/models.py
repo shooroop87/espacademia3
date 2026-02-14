@@ -54,8 +54,8 @@ class SiteSettings(models.Model):
     site_name = models.CharField("Название сайта", max_length=100, default="espacademia")
     contact_email = models.EmailField("Email", default="info@espacademia.com")
     contact_phone = models.CharField("Телефон", max_length=50, blank=True)
-    contact_address = models.CharField("Адрес", max_length=255, default="Бали, Индонезия")
-    
+    contact_address = models.CharField("Адрес", max_length=255, default="Москва, Россия")
+
     # Соцсети
     telegram_link = models.URLField("Telegram", default="https://t.me/espacademia", blank=True)
     whatsapp_link = models.URLField("WhatsApp", blank=True)
@@ -63,8 +63,8 @@ class SiteSettings(models.Model):
     youtube_link = models.URLField("YouTube", blank=True)
     
     # SEO
-    meta_title = models.CharField("Meta Title главной", max_length=70, default="espacademia - Рейтинг застройщиков Бали")
-    meta_description = models.CharField("Meta Description главной", max_length=160, default="Независимый рейтинг застройщиков на Бали")
+    meta_title = models.CharField("Meta Title главной", max_length=70, default="Онлайн курсы испанского языка — ESPacademia")
+    meta_description = models.CharField("Meta Description главной", max_length=160, default="Онлайн школа испанского с носителями от А1 до С1. Заговорите за 3 месяца!")
     
     class Meta:
         verbose_name = "Настройки сайта"

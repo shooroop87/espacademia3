@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}Разговорный онлайн-клуб с носителем — ESPacademia{% endblock %}
+
+{% block meta_description %}Разговорный онлайн-клуб испанского языка с носителем. Каждую субботу. Практикуйте испанский в расслабленной атмосфере.{% endblock %}
+
+{% block content %}
+    {% include 'courses/club-hero.html' %}
+    {% include 'courses/club-why.html' %}
+    {% include 'courses/club-schedule.html' %}
+    {% include 'courses/club-how.html' %}
+    {% include 'courses/club-prices.html' %}
+    {% include 'courses/activo-teachers.html' %}
+    {% include 'courses/activo-testimonials-video.html' %}
+    {% include 'courses/activo-testimonials.html' %}
+    {% include 'courses/activo-ask-questions2.html' %}
+{% endblock %}

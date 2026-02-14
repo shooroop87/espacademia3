@@ -1,0 +1,214 @@
+{% load static i18n %}
+<!-- section-hero-club -->
+<div>
+    <!-- Декор справа -->
+    <img src="https://espacademia.com/wp-content/uploads/2023/12/home8-vactor-bg.png" alt="" class="hero-offers-decor hero-offers-decor-right">
+
+<div style="position: relative; overflow: hidden;">
+    <div class="tf-container tf-spacing-1">
+        <div class="heading-section justify-content-center text-center">
+            <div class="mb_12" style="font-size: 78px;">💬</div>
+            <h1 class="mt_24">РАЗГОВОРНЫЙ ОНЛАЙН-КЛУБ<br><span class="text_secondary-color-2">С НОСИТЕЛЕМ</span></h1>
+            <p class="text-body-2 mt_24 mb_12" style="font-size: 17px;color:#000;">Каждую субботу в 18:00 и 19:10 МСК</p>
+            <p class="text-body-2 mb_20" style="max-width: 1100px; margin: 0 auto;color:#000;">Автоматизируйте ваши знания испанского в расслабленной атмосфере с носителями языка. Узнайте то, чего не найдёте в учебниках!</p>
+            <div class="d-flex justify-content-center gap_16 flex-wrap tf-spacing-1 mt_24" style="padding-top: 0px;">
+                <a href="#" class="tf-btn btn-px-28" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="club_hero" style="background-image: linear-gradient(8deg, rgba(255, 135, 71, 1) 0%, rgba(255, 243, 69, 1) 94%); border-radius: 120px;">
+                    <span>Записаться в клуб</span>
+                    <span class="bg-effect"></span>
+                </a>
+                <a href="https://t.me/joinchat/FUyi1Udyp2Pn75RV3nOFrA" target="_blank" class="tf-btn btn-border btn-px-28" style="border-radius: 120px;">
+                    <span>Telegram-канал клуба</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Модалка -->
+<div class="modal fade" id="consultModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 500px;">
+        <div class="modal-content" style="border-radius: 16px; overflow: hidden; border: none;">
+            <img src="https://espacademia.com/wp-content/uploads/2024/01/forma-min.webp" alt="" style="width: 100%;">
+            <div style="padding: 30px;">
+                <form id="consultForm" method="post" action="/contact/" novalidate>
+                    {% csrf_token %}
+                    <input type="hidden" name="source" id="modalSource" value="club_consult">
+                    <div class="mb_16">
+                        <input type="text" name="name" placeholder="ФИО" class="form-input-custom" required>
+                    </div>
+                    <div class="mb_16">
+                        <input type="tel" id="modal-phone-input" name="phone" placeholder="Номер телефона" class="form-input-custom" required autocomplete="off">
+                        <input type="hidden" name="full_phone" id="modal_full_phone">
+                        <span class="field-error" id="modalPhoneError"></span>
+                    </div>
+                    <div class="mb_16">
+                        <input type="email" id="modal-email" name="email" placeholder="Email" class="form-input-custom" required>
+                        <span class="field-error" id="modalEmailError"></span>
+                    </div>
+                    <div class="mb_16">
+                        <select name="tariff" class="form-input-custom" required>
+                            <option value="" disabled selected>Тариф</option>
+                            <option value="trial">Пробный урок 380 руб.</option>
+                            <option value="single">Разовый урок 490 руб.</option>
+                            <option value="subscription">Абонемент</option>
+                        </select>
+                    </div>
+                    <div class="mb_16">
+                        <select name="level" class="form-input-custom" required>
+                            <option value="" disabled selected>Какой уровень Вас интересует?</option>
+                            <option value="medium">Средний (А2-В1)</option>
+                            <option value="advanced">Продвинутый (В2-С1)</option>
+                        </select>
+                    </div>
+                    <button class="tf-btn btn-bg-1 w-full" type="submit">
+                        <span>Записаться</span>
+                        <span class="bg-effect"></span>
+                    </button>
+                    <p style="font-size: 13px; color: #888; margin-top: 12px; text-align: center;">
+                        Отправляя данные, я даю согласие на <a href="/privacy-policy/">обработку персональных данных</a>
+                    </p>
+                </form>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть" style="position: absolute; top: 12px; right: 12px; background-color: rgba(255,255,255,0.8); border-radius: 50%; padding: 8px;"></button>
+        </div>
+    </div>
+</div>
+
+<style>
+.field-error {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 4px;
+    display: block;
+}
+.input-error {
+    border-color: #e74c3c !important;
+}
+.iti {
+    width: 100%;
+}
+.iti input[type="tel"] {
+    width: 100%;
+}
+.form-input-custom,
+#consultModal select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    color: #333;
+}
+.form-input-custom:focus {
+    border-color: #f9ad33;
+}
+#consultModal select:invalid {
+    color: #999;
+}
+.hero-offers-decor {
+    position: absolute;
+    width: 350px;
+    pointer-events: none;
+    z-index: 0;
+    animation: heroFloat 4s ease-in-out infinite;
+}
+.hero-offers-decor-left {
+    left: 0;
+    top: 32%;
+}
+.hero-offers-decor-right {
+    right: 0;
+    top: 40%;
+    animation-delay: -2s;
+}
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+h1 {
+    font-size: 64px;
+    line-height: 72px;
+}
+@media (max-width: 767px) {
+    .heading-section h1 {
+        font-size: 44px !important;
+        line-height: 52px !important;
+    }
+    .tf-btn {
+        padding: 24px 22px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .hero-offers-decor {
+        width: 200px;
+    }
+}
+@media screen and (max-width: 991px) {
+    .hero-offers-decor {
+        display: none;
+    }
+}
+.text-body-2 {
+    font-weight: 400;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var modalPhone = document.querySelector('#modal-phone-input');
+    var modalIti;
+
+    document.getElementById('consultModal').addEventListener('show.bs.modal', function(e) {
+        var trigger = e.relatedTarget;
+        if (trigger && trigger.dataset.source) {
+            document.getElementById('modalSource').value = trigger.dataset.source;
+        } else {
+            document.getElementById('modalSource').value = 'club_consult';
+        }
+    });
+
+    document.getElementById('consultModal').addEventListener('shown.bs.modal', function() {
+        if (!modalIti) {
+            modalIti = window.intlTelInput(modalPhone, {
+                initialCountry: 'ru',
+                preferredCountries: ['ru', 'es', 'de', 'fr', 'it', 'gb', 'us'],
+                separateDialCode: true,
+                utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@21/build/js/utils.js'
+            });
+        }
+    });
+
+    document.getElementById('consultForm').addEventListener('submit', function(e) {
+        var valid = true;
+        var phoneErr = document.getElementById('modalPhoneError');
+        if (modalIti && !modalIti.isValidNumber()) {
+            phoneErr.textContent = 'Введите корректный номер телефона';
+            modalPhone.classList.add('input-error');
+            valid = false;
+        } else {
+            phoneErr.textContent = '';
+            modalPhone.classList.remove('input-error');
+            if (modalIti) document.getElementById('modal_full_phone').value = modalIti.getNumber();
+        }
+        var emailInput = document.getElementById('modal-email');
+        var emailErr = document.getElementById('modalEmailError');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+            emailErr.textContent = 'Введите корректный email';
+            emailInput.classList.add('input-error');
+            valid = false;
+        } else {
+            emailErr.textContent = '';
+            emailInput.classList.remove('input-error');
+        }
+        if (!valid) e.preventDefault();
+    });
+});
+</script>

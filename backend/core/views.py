@@ -38,11 +38,23 @@ def privacy_policy(request):
     return render(request, 'pages/privacy_policy.html')
 
 
-def terms_of_use(request):
-    return render(request, 'pages/terms_of_use.html')
+def oferta(request):
+    return render(request, 'pages/oferta.html')
 
-def developer_award_2025(request):
-    return render(request, 'pages/developer_award_2025.html')
+
+def free_lesson(request):
+    return render(request, 'pages/free-lesson.html')
+
+
+def reviews(request):
+    return render(request, 'pages/reviews.html', {
+        'video_reviews': VideoReview.objects.filter(is_active=True),
+        'reviews': Review.objects.filter(is_active=True),
+    })
+
+
+def teachers(request):
+    return render(request, 'pages/teachers.html')
 
 
 @require_POST

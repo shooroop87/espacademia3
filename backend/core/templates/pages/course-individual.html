@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}Индивидуальные занятия по испанскому языку — ESPacademia{% endblock %}
+
+{% block meta_description %}Индивидуальные онлайн уроки испанского языка с носителем. Индивидуальный подход, программа и гибкий график.{% endblock %}
+
+{% block content %}
+    {% include 'courses/individual-hero.html' %}
+    {% include 'courses/individual-whom.html' %}
+    {% include 'courses/individual-approach.html' %}
+    {% include 'courses/individual-levels.html' %}
+    {% include 'courses/activo-my-level.html' %}
+    {% include 'courses/individual-start.html' %}
+    {% include 'courses/individual-prices.html' %}
+    {% include 'courses/activo-teachers.html' %}
+    {% include 'courses/individual-testimonials.html' %}
+    {% include 'courses/activo-ask-questions2.html' %}
+{% endblock %}

@@ -1,18 +1,141 @@
 {% load static i18n %}
-<title>{% block title %}espacademia{% endblock %}</title>
-<meta name="description" content="{% block meta_description %}{% endblock %}">
-<meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
-
-<!-- Hreflang для мультиязычности -->
-<link rel="alternate" hreflang="ru" href="https://espacademia.com{{ request.path }}">
-<link rel="alternate" hreflang="en" href="https://espacademia.com/en{{ request.path }}">
-<link rel="alternate" hreflang="x-default" href="https://espacademia.com{{ request.path }}">
+<!-- Title & Meta -->
+<title>{% block title %}Онлайн курсы испанского языка — ESPacademia{% endblock %}</title>
+<meta name="description" content="{% block meta_description %}Онлайн школа испанского языка ESPacademia. Курсы с носителями языка от А1 до С1. Заговорите по-испански за 3 месяца!{% endblock %}">
+<meta name="keywords" content="{% block meta_keywords %}испанский язык, курсы испанского, онлайн обучение, носители языка, DELE{% endblock %}">
 
 <!-- Canonical -->
 <link rel="canonical" href="{{ request.build_absolute_uri }}">
 
+<!-- Hreflang -->
+<link rel="alternate" hreflang="ru" href="https://espacademia.com{{ request.path }}">
+<link rel="alternate" hreflang="x-default" href="https://espacademia.com{{ request.path }}">
+
 <!-- Open Graph -->
-<meta property="og:locale" content="{% if LANGUAGE_CODE == 'en' %}en_US{% else %}ru_RU{% endif %}">
-<meta property="og:locale:alternate" content="{% if LANGUAGE_CODE == 'en' %}ru_RU{% else %}en_US{% endif %}">
+<meta property="og:locale" content="ru_RU">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="espacademia">
+<meta property="og:site_name" content="ESPacademia — Онлайн курсы испанского языка">
+<meta property="og:title" content="{% block og_title %}Онлайн курсы испанского языка — ESPacademia{% endblock %}">
+<meta property="og:description" content="{% block og_description %}Мы научим вас не только говорить, но и думать по-испански! Курсы с носителями от А1 до С1.{% endblock %}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="{% block og_image %}https://espacademia.com/wp-content/uploads/2023/12/faq-5.png{% endblock %}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% block twitter_title %}Онлайн курсы испанского языка — ESPacademia{% endblock %}">
+<meta name="twitter:description" content="{% block twitter_description %}Онлайн школа испанского языка с носителями. Курсы от А1 до С1.{% endblock %}">
+<meta name="twitter:image" content="https://espacademia.com/wp-content/uploads/2023/12/faq-5.png">
+
+<!-- JSON-LD: Organization -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "ESPacademia",
+    "alternateName": "Espacademia — Онлайн курсы испанского языка",
+    "url": "https://espacademia.com/",
+    "logo": "https://espacademia.com/wp-content/uploads/2023/08/2.png",
+    "description": "Онлайн школа испанского языка с носителями. Курсы от А1 до С1. Подготовка к DELE. Разговорные клубы.",
+    "foundingDate": "2020",
+    "founder": {
+        "@type": "Person",
+        "name": "Джина Виверос Ривера",
+        "jobTitle": "Основатель и преподаватель"
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "RU"
+    },
+    "contactPoint": [
+        {
+            "@type": "ContactPoint",
+            "telephone": "+7-926-257-6680",
+            "contactType": "customer service",
+            "availableLanguage": ["Russian", "Spanish"],
+            "email": "info@espacademia.com"
+        }
+    ],
+    "sameAs": [
+        "https://vk.com/espacademia",
+        "https://t.me/espacademia",
+        "https://www.youtube.com/@espacademia"
+    ],
+    "areaServed": {
+        "@type": "GeoShape",
+        "name": "Worldwide (Online)"
+    },
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Курсы испанского языка",
+        "itemListElement": [
+            {
+                "@type": "OfferCatalog",
+                "name": "Español Activo (А1–С1)",
+                "description": "Групповой онлайн-курс испанского с носителями языка"
+            },
+            {
+                "@type": "OfferCatalog",
+                "name": "Español Activo Intensivo",
+                "description": "Интенсивный курс — результат в 2 раза быстрее"
+            },
+            {
+                "@type": "OfferCatalog",
+                "name": "Разговорный клуб с носителем",
+                "description": "Еженедельная практика с носителями из разных стран"
+            },
+            {
+                "@type": "OfferCatalog",
+                "name": "Подготовка к DELE",
+                "description": "Подготовка к международному экзамену DELE A2–B2"
+            },
+            {
+                "@type": "OfferCatalog",
+                "name": "Испанский для детей",
+                "description": "Курсы для детей от 7 лет с игровой методикой"
+            },
+            {
+                "@type": "OfferCatalog",
+                "name": "Индивидуальные занятия",
+                "description": "Персональные уроки с носителем языка"
+            }
+        ]
+    }
+}
+</script>
+
+<!-- JSON-LD: WebSite + SearchAction -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ESPacademia",
+    "url": "https://espacademia.com/",
+    "description": "Онлайн школа испанского языка с носителями",
+    "inLanguage": "ru-RU",
+    "publisher": {
+        "@type": "EducationalOrganization",
+        "name": "ESPacademia",
+        "url": "https://espacademia.com/"
+    }
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": "https://espacademia.com/"
+        }{% block breadcrumb_items %}{% endblock %}
+    ]
+}
+</script>
+
+{% block extra_jsonld %}{% endblock %}

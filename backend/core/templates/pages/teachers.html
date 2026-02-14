@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}Преподаватели — ESPacademia{% endblock %}
+
+{% block meta_description %}Наши преподаватели — носители испанского языка с опытом от 4 до 14 лет. Из Эквадора, Испании, Аргентины, Кубы, Венесуэлы, Сальвадора.{% endblock %}
+
+{% block content %}
+    {% include 'teachers/teachers-grid.html' %}
+{% endblock %}

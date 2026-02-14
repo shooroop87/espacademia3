@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}Курсы испанского языка для детей — ESPacademia{% endblock %}
+
+{% block meta_description %}Онлайн уроки испанского языка для детей от 4 до 17 лет. Индивидуальные занятия с носителем языка в игровой форме.{% endblock %}
+
+{% block content %}
+    {% include 'courses/kids-hero.html' %}
+    {% include 'courses/kids-whom.html' %}
+    {% include 'courses/kids-approach.html' %}
+    {% include 'courses/kids-why.html' %}
+    {% include 'courses/kids-courses.html' %}
+    {% include 'courses/kids-prices.html' %}
+    {% include 'courses/activo-teachers.html' %}
+    {% include 'courses/kids-how.html' %}
+    {% include 'courses/kids-testimonials.html' %}
+    {% include 'courses/activo-ask-questions2.html' %}
+{% endblock %}

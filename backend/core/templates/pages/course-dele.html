@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}Подготовка к экзамену DELE — ESPacademia{% endblock %}
+
+{% block meta_description %}Курс подготовки к международному экзамену DELE. За два месяца подготовим к успешной сдаче. Группа до 5 или индивидуально.{% endblock %}
+
+{% block content %}
+    {% include 'courses/dele-hero.html' %}
+    {% include 'courses/dele-whom.html' %}
+    {% include 'courses/dele-exam.html' %}
+    {% include 'courses/dele-approach.html' %}
+    {% include 'courses/dele-my-level.html' %}
+    {% include 'courses/dele-prices.html' %}
+    {% include 'courses/activo-teachers.html' %}
+    {% include 'courses/dele-testimonials.html' %}
+    {% include 'courses/activo-ask-questions2.html' %}
+{% endblock %}

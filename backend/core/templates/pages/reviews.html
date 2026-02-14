@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}Отзывы студентов — ESPacademia{% endblock %}
+
+{% block meta_description %}Отзывы студентов школы испанского языка ESPacademia. Видео и текстовые отзывы по уровням A1, A2, B1, B2.{% endblock %}
+
+{% block content %}
+    {% include 'reviews/reviews-hero.html' %}
+    {% include 'reviews/reviews-a1.html' %}
+    {% include 'reviews/reviews-a2.html' %}
+    {% include 'reviews/reviews-b1.html' %}
+    {% include 'reviews/reviews-b2.html' %}
+{% endblock %}

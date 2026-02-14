@@ -1,0 +1,136 @@
+{% load static i18n %}
+<!-- section-prices-individual -->
+<div style="background-color: #fff;">
+<div class="tf-spacing-1" style="padding-bottom: 0px;">
+<div class="tf-container" id="prices">
+    <div class="heading-section justify-content-center text-center mb_48">
+        <h3>СТОИМОСТЬ <span class="text_secondary-color-2" style="color:#f9ad33">ОБУЧЕНИЯ</span></h3>
+    </div>
+    <div class="tf-grid-layout lg-col-4 md-col-2">
+        <!-- Пробный -->
+        <div class="pricing-item">
+            <div class="heading d-grid gap_8 mb_24">
+                <h5>ПРОБНЫЙ УРОК</h5>
+                <p>Знакомство</p>
+                <h3>640 р.*</h3>
+            </div>
+            <a href="#" class="tf-btn btn-border w-full" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="individual_trial" style="--button-width: 352px;">
+                <span>Записаться</span>
+                <span class="bg-effect"></span>
+            </a>
+            <div class="content">
+                <ul class="list">
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>Пробный урок 30–40 мин
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Разовый -->
+        <div class="pricing-item">
+            <div class="heading d-grid gap_8 mb_24">
+                <h5>РАЗОВЫЙ УРОК</h5>
+                <p>Без абонемента</p>
+                <h3>2 300 р.*</h3>
+            </div>
+            <a href="#" class="tf-btn btn-border w-full" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="individual_single" style="--button-width: 352px;">
+                <span>Записаться</span>
+                <span class="bg-effect"></span>
+            </a>
+            <div class="content">
+                <ul class="list">
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>Разовый урок 60 мин
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 5 уроков -->
+        <div class="pricing-item center" style="background-color: #EEFFC7;">
+            <div class="tag d-flex gap_4 text_primary-color text-button-small align-items-center">
+                <i class="icon-Star"></i>
+                Оптимальный
+            </div>
+            <div class="heading d-grid gap_8 mb_24">
+                <h5>5 УРОКОВ</h5>
+                <p>Абонемент</p>
+                <h3>10 500 р.*</h3>
+            </div>
+            <a href="#" class="tf-btn btn-bg-1 w-full" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="individual_5lessons" style="--button-width: 354px;">
+                <span>Записаться</span>
+                <span class="bg-effect"></span>
+            </a>
+            <div class="content">
+                <ul class="list">
+                    <li class="d-flex align-items-center gap_8 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>5 уроков по 60 мин
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 10 уроков -->
+        <div class="pricing-item">
+            <div class="heading d-grid gap_8 mb_24">
+                <h5>10 УРОКОВ</h5>
+                <p>Абонемент</p>
+                <h3>18 900 р.*</h3>
+            </div>
+            <a href="#" class="tf-btn btn-border w-full" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="individual_10lessons" style="--button-width: 352px;">
+                <span>Записаться</span>
+                <span class="bg-effect"></span>
+            </a>
+            <div class="content">
+                <ul class="list">
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>10 уроков по 60 мин
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <p class="text-center mt_24" style="font-size:16px;color:#000;font-weight:400;">* Возможна оплата в евро.</p>
+</div>
+</div>
+</div>
+
+<!-- CTA -->
+<div style="background-color: #fff;">
+<div class="tf-container">
+<div class="properties-seller tf-spacing-8">
+    <div class="box-sellers style-2">
+        <div class="wrap-author">
+            <div class="author d-flex align-items-center">
+                <div class="avatar esp-promo-icon">🎯</div>
+                <div class="author-info d-flex flex-column">
+                    <h6 class="mb_8">Запишитесь на пробный урок</h6>
+                    <span class="text-body-default" style="color: #000;">Познакомьтесь с преподавателем и убедитесь, что формат обучения вам подходит</span>
+                </div>
+            </div>
+        </div>
+        <div class="wrap-btn esp-promo-btns">
+            <a href="https://wa.me/79262576680" target="_blank" class="tf-btn btn-bg-1" style="--button-width: 220px;background-color: #e4e95b;color:#000">
+                <span class="d-flex align-items-center gap_8" style="color:#000"><i class="icon-ChatCircleDots"></i>Написать в WhatsApp</span>
+                <span class="bg-effect"></span>
+            </a>
+            <a href="#" class="tf-btn" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="individual_cta" style="--button-width: 200px;">
+                <span class="d-flex align-items-center gap_8"><i class="icon-Star"></i>Записаться</span>
+                <span class="bg-effect"></span>
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<style>
+.pricing-item.center { background-color: unset; }
+.box-sellers.style-2 { display: flex; align-items: center; justify-content: space-between; gap: 24px; border: unset; background-color: #FFFDF5; padding: 28px; }
+.box-sellers.style-2 .wrap-author { display: flex; align-items: center; }
+.esp-promo-icon { font-size: 56px; line-height: 1; min-width: 80px; text-align: center; }
+.esp-promo-btns { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+@media (max-width: 991px) {
+    .box-sellers.style-2 { flex-direction: column; text-align: center; }
+    .esp-promo-btns { flex-direction: column; width: 100%; }
+    .esp-promo-btns .tf-btn { width: 100%; }
+}
+</style>

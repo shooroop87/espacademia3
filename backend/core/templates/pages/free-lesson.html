@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}Бесплатный пробный урок испанского — ESPacademia{% endblock %}
+{% block meta_description %}Получите бесплатный пробный урок с преподавателем носителем языка и начните говорить по-испански уже через 55 минут!{% endblock %}
+
+{% block content %}
+    {% include 'free-lesson/fl-hero.html' %}
+    {% include 'free-lesson/fl-benefits.html' %}
+    {% include 'free-lesson/fl-reviews.html' %}
+    {% include 'free-lesson/fl-form.html' %}
+    {% include 'courses/activo-teachers.html' %}
+    {% include 'free-lesson/fl-why.html' %}
+{% endblock %}
