@@ -16,27 +16,36 @@
                                 </a>
                             </li>
                             <li class="text-menu">
-                                <a href="#school" class="splitting">
+                                <a href="{% url 'index' %}#school" class="splitting">
                                     <span class="text" data-splitting>О Школе</span>
                                 </a>
                             </li>
+                            <li class="has-child text-menu">
+    <a href="#" class="link-no-action toggle splitting">
+        <span class="text" data-splitting="">Курсы</span>
+        <span class="text" data-splitting="">Курсы</span>
+    </a>
+    <ul class="submenu">
+        <li><a href="{% url 'courses:espanol_activo' %}">Español Activo</a></li>
+        <li><a href="{% url 'courses:espanol_activo_intensivo' %}">Español Activo Intensivo</a></li>
+        <li><a href="{% url 'courses:club_con_nositelem' %}">Разговорный клуб с носителем</a></li>
+        <li><a href="{% url 'courses:kursy_dlya_detej' %}">Испанский для детей</a></li>
+        <li><a href="{% url 'courses:individualnye_zanyatiya' %}">Индивидуальные занятия</a></li>
+        <li><a href="{% url 'courses:podgotovka_dele' %}">Подготовка к DELE</a></li>
+    </ul>
+</li>
                             <li class="text-menu">
-                                <a href="#courses" class="splitting">
-                                    <span class="text" data-splitting>Курсы</span>
-                                </a>
-                            </li>
-                            <li class="text-menu">
-                                <a href="#teachers" class="splitting">
+                                <a href="{% url 'teachers' %}" class="splitting">
                                     <span class="text" data-splitting>Преподаватели</span>
                                 </a>
                             </li>
                             <li class="text-menu">
-                                <a href="#reviews" class="splitting">
+                                <a href="{% url 'index' %}#reviews" class="splitting">
                                     <span class="text" data-splitting>Отзывы</span>
                                 </a>
                             </li>
                             <li class="text-menu">
-                                <a href="#contacts" class="splitting">
+                                <a href="{% url 'index' %}#contacts" class="splitting">
                                     <span class="text" data-splitting>Контакты</span>
                                 </a>
                             </li>
@@ -80,27 +89,36 @@
                                 </a>
                             </li>
                             <li class="text-menu">
-                                <a href="#school" class="splitting">
+                                <a href="{% url 'index' %}#school" class="splitting">
                                     <span class="text" data-splitting>О Школе</span>
                                 </a>
                             </li>
+                            <li class="has-child text-menu">
+    <a href="#" class="link-no-action toggle splitting">
+        <span class="text" data-splitting="">Курсы</span>
+        <span class="text" data-splitting="">Курсы</span>
+    </a>
+    <ul class="submenu">
+        <li><a href="{% url 'courses:espanol_activo' %}">Español Activo</a></li>
+        <li><a href="{% url 'courses:espanol_activo_intensivo' %}">Español Activo Intensivo</a></li>
+        <li><a href="{% url 'courses:club_con_nositelem' %}">Разговорный клуб с носителем</a></li>
+        <li><a href="{% url 'courses:kursy_dlya_detej' %}">Испанский для детей</a></li>
+        <li><a href="{% url 'courses:individualnye_zanyatiya' %}">Индивидуальные занятия</a></li>
+        <li><a href="{% url 'courses:podgotovka_dele' %}">Подготовка к DELE</a></li>
+    </ul>
+</li>
                             <li class="text-menu">
-                                <a href="#courses" class="splitting">
-                                    <span class="text" data-splitting>Курсы</span>
-                                </a>
-                            </li>
-                            <li class="text-menu">
-                                <a href="#teachers" class="splitting">
+                                <a href="{% url 'teachers' %}" class="splitting">
                                     <span class="text" data-splitting>Преподаватели</span>
                                 </a>
                             </li>
                             <li class="text-menu">
-                                <a href="#reviews" class="splitting">
+                                <a href="{% url 'index' %}#reviews" class="splitting">
                                     <span class="text" data-splitting>Отзывы</span>
                                 </a>
                             </li>
                             <li class="text-menu">
-                                <a href="#contacts" class="splitting">
+                                <a href="{% url 'index' %}#contacts" class="splitting">
                                     <span class="text" data-splitting>Контакты</span>
                                 </a>
                             </li>

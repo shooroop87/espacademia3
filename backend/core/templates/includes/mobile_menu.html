@@ -19,23 +19,31 @@
     <div class="offcanvas-body inner-mobile-nav">
         <div class="mb-body">
             <ul id="menu-mobile-menu" class="style-1">
-                <li class="menu-item active">
+                <li class="menu-item">
                     <a href="{% url 'index' %}" class="item-menu-mobile">Главная</a>
                 </li>
                 <li class="menu-item">
-                    <a href="#school" class="item-menu-mobile" >О Школе</a>
+                    <a href="{% url 'index' %}#school" class="item-menu-mobile">О Школе</a>
+                </li>
+                <li class="menu-item has-children">
+                    <a href="#" class="item-menu-mobile toggle-submenu">Курсы <i class="icon-chevron-down" style="font-size:10px; margin-left:6px;"></i></a>
+                    <ul class="sub-menu" style="display:none; padding-left: 15px;">
+                        <li><a href="{% url 'courses:espanol_activo' %}" class="item-menu-mobile">Español Activo</a></li>
+                        <li><a href="{% url 'courses:espanol_activo_intensivo' %}" class="item-menu-mobile">Español Activo Intensivo</a></li>
+                        <li><a href="{% url 'courses:club_con_nositelem' %}" class="item-menu-mobile">Разговорный клуб с носителем</a></li>
+                        <li><a href="{% url 'courses:kursy_dlya_detej' %}" class="item-menu-mobile">Испанский для детей</a></li>
+                        <li><a href="{% url 'courses:individualnye_zanyatiya' %}" class="item-menu-mobile">Индивидуальные занятия</a></li>
+                        <li><a href="{% url 'courses:podgotovka_dele' %}" class="item-menu-mobile">Подготовка к DELE</a></li>
+                    </ul>
                 </li>
                 <li class="menu-item">
-                    <a href="#courses" class="item-menu-mobile" >Курсы</a>
+                    <a href="{% url 'teachers' %}" class="item-menu-mobile">Преподаватели</a>
                 </li>
                 <li class="menu-item">
-                    <a href="#teachers" class="item-menu-mobile" >Преподаватели</a>
+                    <a href="{% url 'index' %}#reviews" class="item-menu-mobile">Отзывы</a>
                 </li>
                 <li class="menu-item">
-                    <a href="#reviews" class="item-menu-mobile" >Отзывы</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#contacts" class="item-menu-mobile" >Контакты</a>
+                    <a href="{% url 'index' %}#contacts" class="item-menu-mobile">Контакты</a>
                 </li>
             </ul>
             <div class="support">
@@ -69,10 +77,21 @@
     </div>
 </div>
 <style>
-    @media (max-width: 991px) {
+@media (max-width: 991px) {
     .header .header-inner {
         height: 80px;
     }
+}
+#menu-mobile .sub-menu .item-menu-mobile {
+    font-size: 16px;
+    padding: 16px 0;
+    font-weight: 500;
+}
+#menu-mobile .toggle-submenu .icon-chevron-down {
+    transition: transform 0.3s;
+}
+#menu-mobile .toggle-submenu.open .icon-chevron-down {
+    transform: rotate(180deg);
 }
 </style>
 <script>
@@ -80,9 +99,23 @@ document.addEventListener('DOMContentLoaded', function() {
     var offcanvasEl = document.getElementById('menu-mobile');
     var offcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl);
     
-    offcanvasEl.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    // Закрытие при клике на якорные ссылки
+    offcanvasEl.querySelectorAll('a[href*="#"]:not(.toggle-submenu)').forEach(function(link) {
         link.addEventListener('click', function() {
             offcanvas.hide();
+        });
+    });
+
+    // Раскрытие подменю курсов
+    offcanvasEl.querySelectorAll('.toggle-submenu').forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            var submenu = this.nextElementSibling;
+            if (submenu) {
+                var isOpen = submenu.style.display !== 'none';
+                submenu.style.display = isOpen ? 'none' : 'block';
+                this.classList.toggle('open', !isOpen);
+            }
         });
     });
 });

@@ -53,13 +53,13 @@
                             </div>
                             <div class="tf-collapse-content">
                                 <ul class="footer-menu-list d-grid gap_12">
-                                    <li class="text-body-default "><a href="{% url 'index' %}" class="link">Главная</a></li>
-                                    <li class="text-body-default "><a href="#school" class="link">О Школе</a></li>
-                                    <li class="text-body-default "><a href="#" class="link">Преподаватели</a></li>
-                                    <li class="text-body-default "><a href="#" class="link">Отзывы</a></li>
-                                    <li class="text-body-default "><a href="#" class="link">Вопросы и ответы</a></li>
-                                    <li class="text-body-default "><a href="#contacts" class="link">Контакты</a></li>
-                                </ul>
+    <li class="text-body-default"><a href="{% url 'index' %}" class="link">Главная</a></li>
+    <li class="text-body-default"><a href="{% url 'index' %}#school" class="link">О Школе</a></li>
+    <li class="text-body-default"><a href="{% url 'teachers' %}" class="link">Преподаватели</a></li>
+    <li class="text-body-default"><a href="{% url 'index' %}#reviews" class="link">Отзывы</a></li>
+    <li class="text-body-default"><a href="{% url 'index' %}#faq" class="link">Вопросы и ответы</a></li>
+    <li class="text-body-default"><a href="{% url 'index' %}#contacts" class="link">Контакты</a></li>
+</ul>
                             </div>
                         </div>
                     </div>
@@ -72,13 +72,13 @@
                             </div>
                             <div class="tf-collapse-content">
                                 <ul class="footer-menu-list d-grid gap_12">
-                                    <li class="text-body-default "><a href="#" class="link">Онлайн курс Español Activo</a></li>
-                                    <li class="text-body-default "><a href="#" class="link">Español Activo Intensivo</a></li>
-                                    <li class="text-body-default "><a href="#" class="link">Разговорный клуб с носителем</a></li>
-                                    <li class="text-body-default "><a href="#" class="link">Испанский для детей</a></li>
-                                    <li class="text-body-default "><a href="#" class="link">Индивидуальные занятия</a></li>
-                                    <li class="text-body-default "><a href="#" class="link">Подготовка к экзамену DELE</a></li>
-                                </ul>
+    <li class="text-body-default"><a href="{% url 'courses:espanol_activo' %}" class="link">Онлайн курс Español Activo</a></li>
+    <li class="text-body-default"><a href="{% url 'courses:espanol_activo_intensivo' %}" class="link">Español Activo Intensivo</a></li>
+    <li class="text-body-default"><a href="{% url 'courses:club_con_nositelem' %}" class="link">Разговорный клуб с носителем</a></li>
+    <li class="text-body-default"><a href="{% url 'courses:kursy_dlya_detej' %}" class="link">Испанский для детей</a></li>
+    <li class="text-body-default"><a href="{% url 'courses:individualnye_zanyatiya' %}" class="link">Индивидуальные занятия</a></li>
+    <li class="text-body-default"><a href="{% url 'courses:podgotovka_dele' %}" class="link">Подготовка к DELE</a></li>
+</ul>
                             </div>
                         </div>
                     </div>
