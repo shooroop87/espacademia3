@@ -8959,7 +8959,7 @@ tr {
   margin-top: 47px;
 }
 .section-process .process-item:not(:last-child) {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .section-process .img-style {
   border-radius: 12px;

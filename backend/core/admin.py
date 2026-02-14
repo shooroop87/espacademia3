@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import CodeSnippet, ContactRequest, FAQ, SiteSettings, Popup, HeaderButton, Review, WhySpanishItem
-
+from .models import VideoReview
 
 
 @admin.register(ContactRequest)
@@ -52,6 +52,14 @@ class SiteSettingsAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return False
     
+
+@admin.register(VideoReview)
+class VideoReviewAdmin(admin.ModelAdmin):
+    list_display = ['user_name', 'course_name', 'order', 'is_active', 'created_at']
+    list_editable = ['order', 'is_active']
+    list_filter = ['is_active', 'course_name']
+    search_fields = ['user_name']
+
 
 @admin.register(WhySpanishItem)
 class WhySpanishItemAdmin(admin.ModelAdmin):

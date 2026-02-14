@@ -1,0 +1,75 @@
+<div style="background-color: #fff;">
+<!-- section-video-testimonials -->
+<div class="tf-container tf-spacing-1" id="video-reviews" style="padding-top: 0px;">
+    <div class="heading-section justify-content-center text-center mb_48">
+        <span class="sub text-uppercase fw-6 text_secondary-color-2">Видео-отзывы</span>
+        <h3>Наши студенты делятся впечатлениями</h3>
+    </div>
+
+    <div class="sw-layout">
+        <div class="swiper" data-preview="2" data-tablet="2" data-mobile="1" data-space-lg="30" data-space-md="20" data-space="15">
+            <div class="swiper-wrapper">
+                {% for vr in video_reviews %}
+                <div class="swiper-slide">
+                    <div class="video-review-card">
+                        <div class="author d-flex gap_12 align-items-center mb_16">
+                            <div class="avatar">
+                                {% if vr.get_avatar %}
+                                <img src="{{ vr.get_avatar }}" width="60" height="60" alt="{{ vr.user_name }}" style="border-radius:50%; object-fit:cover;">
+                                {% else %}
+                                <div class="avatar-placeholder">{{ vr.user_name|slice:":1" }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="info">
+                                <p class="fw-6 text_primary-color">{{ vr.user_name }}</p>
+                                <p class="text-caption-1 text_secondary-color">{{ vr.course_name }}</p>
+                            </div>
+                        </div>
+                        <div class="widget-video video-review-thumb">
+                            <img src="{{ vr.get_poster }}" alt="Отзыв {{ vr.user_name }}">
+                            <a href="{{ vr.youtube_url }}" class="popup-youtube">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="30" fill="rgba(255,255,255,0.9)"/><path d="M24 18L42 30L24 42V18Z" fill="#E8562A"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="swiper-slide">
+                    <div class="video-review-card text-center">
+                        <p class="text_secondary-color">Видео-отзывы пока не добавлены</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="sw-dots style-1 sw-pagination-layout justify-content-center d-flex mt_24"></div>
+        </div>
+    </div>
+</div>
+</div>
+
+<style>
+.video-review-card {
+    border-radius: 12px;
+    padding: 20px;
+}
+.video-review-thumb {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.video-review-thumb img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.video-review-thumb .popup-youtube {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+.video-review-card {
+    padding: 0;
+}
+</style>

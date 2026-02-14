@@ -1,0 +1,133 @@
+{% load static i18n %}
+<!-- section-prices -->
+<div style="background-color: #fff;">
+<div class="tf-spacing-1" style="padding-bottom: 0px;">
+<div class="tf-container" id="prices">
+    <div class="heading-section justify-content-center text-center mb_48">
+        <h3>СТОИМОСТЬ ОБУЧЕНИЯ <span class="text_secondary-color-2" style="color:#f9ad33">ЗА ОДИН УРОВЕНЬ</span> (3 МЕСЯЦА)</h3>
+    </div>
+    <div class="tf-grid-layout lg-col-3">
+        <!-- Тариф 1: Я САМ -->
+        <div class="pricing-item">
+            <div class="heading d-grid gap_8 mb_24">
+                <h5>Я САМ</h5>
+                <p>Базовый тариф для самостоятельного обучения</p>
+                <h3>11 400 р.*</h3>
+            </div>
+            <a href="#" class="tf-btn btn-border w-full" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="tarif_yasam" style="--button-width: 352px;">
+                <span>Записаться</span>
+                <span class="bg-effect"></span>
+            </a>
+            <div class="content">
+                <div class="text-title fw-6 text_primary-color  mb_19">Включено в тариф:</div>
+                <ul class="list">
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>Доступ к платформе: упражнения, аудио-тренажёры, задания на говорение и письмо, тесты
+                    </li>
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>Проверка заданий преподавателем (3,5 месяца)
+                    </li>
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>Презентации для скачивания
+                    </li>
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>Итоговый экзамен и сертификат
+                    </li>
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>~1000 новых слов в Quizlet
+                    </li>
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>Доступ к платформе на 6 месяцев
+                    </li>
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>Чат с преподавателем и куратором
+                    </li>
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>12 записей уроков по грамматике
+                    </li>
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>Призы и скидка на следующий уровень
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Тариф 2: ГРУППА ДО 5 -->
+        <div class="pricing-item center" style="background-color: ##EEFFC7;">
+            <div class="tag d-flex gap_4 text_primary-color text-button-small align-items-center">
+                <i class="icon-Star"></i>
+                Оптимальный
+            </div>
+            <div class="heading d-grid gap_8 mb_24">
+                <h5>ГРУППА ДО 5</h5>
+                <p>Обучение в мини-группе с преподавателем-носителем языка</p>
+                <h3>22 800 р.*</h3>
+            </div>
+            <a href="#" class="tf-btn btn-bg-1 w-full" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="tarif_gruppa5" style="--button-width: 354px;">
+                <span>Записаться</span>
+                <span class="bg-effect"></span>
+            </a>
+            <div class="content">
+                <div class="text-title fw-6 text_primary-color  mb_19">Всё из тарифа «Я сам», а также:</div>
+                <ul class="list">
+                    <li class="d-flex align-items-center gap_8 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>Записи всех занятий
+                    </li>
+                    <li class="d-flex align-items-center gap_8 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>12 уроков по теории-практике в группе до 5 человек
+                    </li>
+                    <li class="d-flex align-items-center gap_8 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>12 уроков разговорной практики с носителем
+                    </li>
+                    <li class="d-flex align-items-center gap_8 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>Призы и скидка на следующий уровень
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Тариф 3: ТОЛЬКО Я -->
+        <div class="pricing-item" style="background-color: #">
+            <div class="heading d-grid gap_8 mb_24">
+                <h5>ТОЛЬКО Я</h5>
+                <p>Индивидуальное обучение — максимум внимания</p>
+                <h3>56 400 р.*</h3>
+            </div>
+            <a href="#" class="tf-btn btn-border w-full" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="tarif_tolko_ya" style="--button-width: 352px;">
+                <span>Записаться</span>
+                <span class="bg-effect"></span>
+            </a>
+            <div class="content">
+                <div class="text-title fw-6 text_primary-color  mb_19">Всё из тарифа «Я сам», а также:</div>
+                <ul class="list">
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>Записи всех занятий
+                    </li>
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>12 индивидуальных уроков по теории-практике
+                    </li>
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>12 индивидуальных уроков разговорной практики с носителем
+                    </li>
+                    <li class="d-flex align-items-center gap_6 text_primary-color text-body-default">
+                        <i class="icon-CheckCircle"></i>Призы и скидка на следующий уровень
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <p class="text-center mt_24" style="font-size:16px;">
+        * Возможна оплата в евро.
+    </p>
+    <p class="text-center" style="font-size:16px;">
+        Нужно больше практики? Участвуйте в нашем онлайн разговорном клубе по специальной цене.
+    </p>
+</div>
+</div>
+</div>
+<style>
+.pricing-item.center {
+    background-color: unset;
+}
+.pricing-item .list i {
+    #color: #B42B2B;
+}
+</style>

@@ -4,7 +4,7 @@ from django.db.models import Count
 from django.db.models import Prefetch
 
 from events.models import Event
-from .models import FAQ, Review, SiteSettings, WhySpanishItem
+from .models import FAQ, Review, SiteSettings, VideoReview, WhySpanishItem
 
 from django.views.decorators.http import require_POST
 
@@ -27,6 +27,7 @@ def index(request):
         'settings': settings,
         'faqs': faqs,
         'why_spanish_items': why_spanish_items,
+        'video_reviews': VideoReview.objects.filter(is_active=True),
         'reviews': Review.objects.filter(is_active=True)[:10],
     }
     

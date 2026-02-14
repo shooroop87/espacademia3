@@ -28,7 +28,26 @@
     {% include 'includes/auth_popup.html' %}
     {% include 'includes/auth_scripts.html' %}
     
-    {% block extra_js %}{% endblock %}
+{% block extra_js %}
+<link rel="stylesheet" href="/static/css/magnific-popup.min.css">
+<script>
+$(function() {
+    $('[data-fancybox="gallery-lessons"]').magnificPopup({
+        type: 'image',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0, 1],
+            tCounter: '%curr% из %total%'
+        },
+        mainClass: 'mfp-fade',
+        removalDelay: 300,
+        closeOnContentClick: false,
+        closeBtnInside: true
+    });
+});
+</script>
+{% endblock %}
     {% for snippet in snippets_body_end %}{{ snippet.code|safe }}{% endfor %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@21/build/css/intlTelInput.css">
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@21/build/js/intlTelInput.min.js"></script>

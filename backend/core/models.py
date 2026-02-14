@@ -263,3 +263,65 @@ class WhySpanishItem(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+class VideoReview(models.Model):
+    """Видео-отзывы студентов"""
+    COURSE_TYPE_CHOICES = [
+        ('all', 'Все страницы'),
+        ('activo', 'Español Activo'),
+        ('intensivo', 'Español Activo Intensivo'),
+        ('club', 'Разговорный клуб'),
+        ('kids', 'Для детей'),
+        ('individual', 'Индивидуальные занятия'),
+        ('dele', 'Подготовка к DELE'),
+    ]
+    user_name = models.CharField("Имя", max_length=100)
+    user_avatar = models.ImageField("Аватар (файл)", upload_to="video_reviews/", blank=True)
+    user_avatar_url = models.URLField("Или URL аватара", blank=True)
+    course_name = models.CharField("Курс", max_length=100, blank=True, help_text="Например: Курс А1")
+    course_type = models.CharField(
+        "Тип курса", max_length=20,
+        choices=COURSE_TYPE_CHOICES, default='all',
+        help_text="На какой странице курса показывать"
+    )
+    youtube_url = models.URLField("Ссылка на YouTube видео")
+    poster = models.ImageField("Обложка (если нет — возьмётся с YouTube)", upload_to="video_reviews/posters/", blank=True)
+    order = models.PositiveIntegerField("Порядок", default=0)
+    is_active = models.BooleanField("Активен", default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+    class Meta:
+        verbose_name = "Видео-отзыв"
+        verbose_name_plural = "Видео-отзывы"
+        ordering = ["order", "-created_at"]
+
+    def __str__(self):
+        return f"{self.user_name} — {self.course_name}"
+
+    def get_avatar(self):
+        if self.user_avatar:
+            return self.user_avatar.url
+        return self.user_avatar_url or ''
+
+    def get_youtube_id(self):
+        """Извлекает YouTube ID из URL"""
+        import re
+        patterns = [
+            r'(?:youtube\.com/watch\?v=|youtu\.be/|youtube\.com/shorts/)([^&\n?#]+)',
+        ]
+        for pattern in patterns:
+            match = re.search(pattern, self.youtube_url)
+            if match:
+                return match.group(1)
+        return ''
+
+    def get_poster(self):
+        if self.poster:
+            return self.poster.url
+        yt_id = self.get_youtube_id()
+        if yt_id:
+            return f"https://img.youtube.com/vi/{yt_id}/hqdefault.jpg"
+        return ''
+    

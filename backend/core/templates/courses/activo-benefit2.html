@@ -1,0 +1,156 @@
+<div style="background-color: #fff;">
+<div class="tf-container tf-spacing-1">
+    <div class="heading-section text-center mb_48">
+        <h3>Что Вы получите в результате обучения?</h3>
+        <p class="text-body-2 mt_12">Мы заинтересованы в прогрессе наших студентов — чтобы они говорили, думали по-испански и осуществляли свои цели. Поэтому мы предлагаем не обучение, а результат:</p>
+    </div>
+
+    <div class="tf-grid-layout md-col-2 gap_30 align-items-center">
+        <!-- Левая колонка: карточки -->
+        <div>
+            <div class="results-grid">
+    <div class="result-card d-flex gap_16">
+        <span style="font-size: 28px;">🚀</span>
+        <div class="d-flex flex-column gap">
+            <span class="text-title fw-6 text_primary-color">Новый уровень</span>
+            <span class="text-body-default">За 3 месяца обучения</span>
+        </div>
+    </div>
+    <div class="result-card d-flex gap_16">
+        <span style="font-size: 28px;">📚</span>
+        <div class="d-flex flex-column gap">
+            <span class="text-title fw-6 text_primary-color">500–1000 слов</span>
+            <span class="text-body-default">В активном запасе</span>
+        </div>
+    </div>
+    <div class="result-card d-flex gap_16">
+        <span style="font-size: 28px;">💬</span>
+        <div class="d-flex flex-column gap">
+            <span class="text-title fw-6 text_primary-color">Без страха</span>
+            <span class="text-body-default">Говорить по-испански</span>
+        </div>
+    </div>
+    <div class="result-card d-flex gap_16">
+        <span style="font-size: 28px;">⚡</span>
+        <div class="d-flex flex-column gap">
+            <span class="text-title fw-6 text_primary-color">Автоматизм</span>
+            <span class="text-body-default">Грамматика на автомате</span>
+        </div>
+    </div>
+    <div class="result-card d-flex gap_16">
+        <span style="font-size: 28px;">❤️</span>
+        <div class="d-flex flex-column gap">
+            <span class="text-title fw-6 text_primary-color">Любовь к языку</span>
+            <span class="text-body-default">Мотивация и интерес</span>
+        </div>
+    </div>
+    <div class="result-card d-flex gap_16">
+        <span style="font-size: 28px;">🗣️</span>
+        <div class="d-flex flex-column gap">
+            <span class="text-title fw-6 text_primary-color">Скорость речи</span>
+            <span class="text-body-default">Заметный прогресс</span>
+        </div>
+    </div>
+    <div class="result-card d-flex gap_16">
+        <span style="font-size: 28px;">🧠</span>
+        <div class="d-flex flex-column gap">
+            <span class="text-title fw-6 text_primary-color">Когнитивные навыки</span>
+            <span class="text-body-default">Развитие мышления</span>
+        </div>
+    </div>
+    <div class="result-card d-flex gap_16">
+        <span style="font-size: 28px;">🏅</span>
+        <div class="d-flex flex-column gap">
+            <span class="text-title fw-6 text_primary-color">Экзамен DELE</span>
+            <span class="text-body-default">Международная оценка</span>
+        </div>
+    </div>
+</div>
+        </div>
+
+        <!-- Правая колонка: диаграмма -->
+        <div class="d-flex align-items-center justify-content-center">
+            <a href="https://espacademia.com/wp-content/uploads/2023/12/Screenshot_7-PhotoRo.webp" data-fancybox="gallery-methodology" class="methodology-diagram">
+                <img src="https://espacademia.com/wp-content/uploads/2023/12/Screenshot_7-PhotoRo.webp" alt="Методика обучения">
+                <div class="diagram-zoom-hint">
+                    <i class="icon-MagnifyingGlassPlus"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="properties-description mt_20 text-center">
+        <p class="text-body-2">Каждый курс завершается экзаменом, основанным на международном тестировании DELE, который проверяет Ваш уровень чтения, восприятия на слух, письма и говорения.</p>
+    </div>
+</div>
+</div>
+<style>
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.result-card {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+.result-card:hover {
+    background: #fff;
+    border-color: #c0392b;
+    box-shadow: 0 4px 15px rgba(192, 57, 43, 0.1);
+    transform: translateY(-2px);
+}
+.methodology-diagram {
+    position: relative;
+    display: inline-block;
+    cursor: zoom-in;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.methodology-diagram:hover {
+    transform: scale(1.02);
+}
+.methodology-diagram img {
+    max-width: 100%;
+    border-radius: 12px;
+}
+.diagram-zoom-hint {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.methodology-diagram:hover .diagram-zoom-hint {
+    opacity: 1;
+}
+@media (max-width: 767px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+</style>
+<script>
+$(function() {
+    $('[data-fancybox="gallery-methodology"]').magnificPopup({
+        type: 'image',
+        mainClass: 'mfp-fade',
+        removalDelay: 300,
+        closeOnContentClick: true,
+        closeBtnInside: true
+    });
+});
+</script>

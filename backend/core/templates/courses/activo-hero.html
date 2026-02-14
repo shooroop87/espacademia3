@@ -6,48 +6,26 @@
     <!-- Декор справа -->
     <img src="https://espacademia.com/wp-content/uploads/2023/12/home8-vactor-bg.png" alt="" class="hero-offers-decor hero-offers-decor-right">
 
-<div class="tf-container tf-spacing-1">
-
-    <div class="heading-section justify-content-center text-center mb_48">
-        <h1>УРОКИ ИСПАНСКОГО ЯЗЫКА <span class="text_secondary-color-2">С НОСИТЕЛЯМИ</span></h1>
-        <p>Изучайте испанский язык с носителями по проверенной методике индивидуально или в мини-группе.</p>
-    </div>
-    <div class="tf-grid-layout lg-col-3">
-        <div class="pricing-item pricing-item-p pricing-item-mobile" style="background-color: #EEFFC7;">
-            <div class="heading d-grid gap_8 mb_24">
-                <h5>Бесплатный пробный урок</h5>
-                <p>Сделайте первый шаг к свободному испанскому</p>
-                <h3><del>2100 р.</del> 0 р.</h3>
+{% load static i18n %}
+<!-- section-hero-course v2 -->
+<div style="position: relative; overflow: hidden;">
+    <div class="tf-container tf-spacing-1">
+        <div class="heading-section justify-content-center text-center">
+            <div class="mb_12" style="font-size: 78px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="64" viewBox="0 0 48 32" style="border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+    <rect width="48" height="32" fill="#c60b1e" rx="2"/>
+    <rect y="8" width="48" height="16" fill="#ffc400"/>
+</svg>
             </div>
-            <a href="#" class="tf-btn btn-border w-full" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="free_trial" style="--button-width: 352px;">
-                <span>Записаться</span>
-                <span class="bg-effect"></span>
-            </a>
-        </div>
-        <div class="pricing-item pricing-item-p pricing-item-mobile" style="background-color: #EED0F8;">
-            <div class="tag d-flex gap_4 text_primary-color text-button-small align-items-center">
-                <i class="icon-Star"></i>
-                Скидка 67%
-            </div>
-            <div class="heading d-grid gap_8 mb_24">
-                <h5>Запишитесь на мини-курс со скидкой 67%</h5>
-                <p>"Активируйте" ваш испанский за 7 дней!</p>
-                <h3><del>2990 р.</del> 990 р.</h3>
-            </div>
-            <a href="#" class="tf-btn w-full" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="mini_course_67" style="--button-width: 354px;background-color: #F9AD33;">
-                <span>Записаться</span>
-                <span class="bg-effect"></span>
-            </a>
-        </div>
-        <div class="pricing-item pricing-item-p pricing-item-mobile" style="background-color: #FFEAC8;">
-            <div class="heading d-grid gap_8 mb_24">
-                <h5>Скидка 5% на курс испанского + спецкурс в подарок для новых клиентов!</h5>
-                <p>Оставьте заявку, чтобы получить скидку и подарок</p>
-            </div>
-            <a href="#" class="tf-btn btn-border w-full" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="gift_discount_5" style="--button-width: 352px;">
-                <span>Получить подарок</span>
-                <span class="bg-effect"></span>
-            </a>
+            <h1 class="mt_24">ОНЛАЙН КУРС<br><span class="text_secondary-color-2">ESPAÑOL ACTIVO</span></h1>
+            <p class="text-body-2 mt_24 mb_12" style="font-size: 17px;color:#000;">Заговорите на испанском за 3 месяца!</p>
+            <p class="text-body-2 mb_20" style="max-width: 1100px; margin: 0 auto;color:#000;">Онлайн-курс в Espacademia — Вы платите не за количество часов с преподавателем, а за повышение своего уровня согласно Общеевропейским компетенциям владения иностранным языком.</p>
+            <div class="d-flex justify-content-center tf-spacing-1 mt_24" style="padding-top: 0px;">
+    <a href="#" class="tf-btn btn-px-28" data-bs-toggle="modal" data-bs-target="#consultModal" data-source="espanol_activo_hero" style="    background-image: linear-gradient(8deg, rgba(255, 135, 71, 1) 0%, rgba(255, 243, 69, 1) 94%); border-radius: 120px;">
+        <span>Записаться на консультацию</span>
+        <span class="bg-effect"></span>
+    </a>
+</div>
         </div>
     </div>
 </div>
@@ -152,7 +130,7 @@
 }
 .hero-offers-decor {
     position: absolute;
-    width: 280px;
+    width: 350px;
     pointer-events: none;
     z-index: 0;
     animation: heroFloat 4s ease-in-out infinite;
@@ -160,7 +138,7 @@
 
 .hero-offers-decor-left {
     left: 0;
-    top: 34%;
+    top: 32%;
 }
 
 .hero-offers-decor-right {
@@ -179,7 +157,21 @@
     position: relative;
     z-index: 1;
 }
-
+h1 {
+    font-size: 64px;
+    line-height: 72px;
+}
+@media (max-width: 767px) {
+    .heading-section h1 {
+        font-size: 44px !important;
+        line-height: 52px !important;
+    }
+}
+@media (max-width: 767px) {
+    .tf-btn {
+        padding: 24px 22px;
+    }
+}
 @media screen and (max-width: 1200px) {
     .hero-offers-decor {
         width: 200px;
@@ -190,6 +182,9 @@
     .hero-offers-decor {
         display: none;
     }
+}
+.text-body-2 {
+    font-weight: 400;
 }
 </style>
 <script>
