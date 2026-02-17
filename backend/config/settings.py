@@ -13,13 +13,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY", "1insecure1-1default1")
 
 # DEBUG
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost 127.0.0.1 217.154.149.73 parisweek.ru www.parisweek.ru").split()
+    ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost 127.0.0.1 89.104.68.15 parisweek.ru www.parisweek.ru").split()
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost",
