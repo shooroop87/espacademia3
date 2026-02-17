@@ -165,7 +165,7 @@ else:
             "USER": os.getenv("POSTGRES_USER", "espacademia_user"),
             "PASSWORD": os.getenv("POSTGRES_PASSWORD", "espacademia_password"),
             "HOST": os.getenv("POSTGRES_HOST", "localhost"),
-            "PORT": os.getenv("POSTGRES_PORT", "5450"),
+            "PORT": os.getenv("POSTGRES_PORT", "5432"),
         }
     }
 
